@@ -33,13 +33,17 @@ class Homepage extends StatelessWidget {
                       style: context.textTheme.displayLarge,
                     ),
                     const SizedBox(height: Dimens.xxLarge * 1.5),
-                    Text(
-                      Strings.websiteUnderConstruction,
-                      style: context.textTheme.bodyLarge!.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: context.colorScheme.tertiary,
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: context.width * 0.15),
+                      child: Text(
+                        Strings.websiteUnderConstruction,
+                        style: context.textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: context.colorScheme.tertiary,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: Dimens.xxLarge * 1.5),
                     Text(
