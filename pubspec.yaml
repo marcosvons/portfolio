@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  animated_text_kit: ^4.2.2
   bloc: ^8.1.1
   firebase_core: ^2.4.0
   flutter:
@@ -31,6 +32,7 @@ flutter:
 
   assets:
     - assets/lotties/
+    - assets/images/
 
   fonts:
     - family: Inter
@@ -50,3 +52,12 @@ flutter:
           weight: 800
         - asset: assets/fonts/Inter-Black.ttf
           weight: 900
+    - family: Caprasimo
+      fonts:
+        - asset: assets/fonts/Caprasimo/Caprasimo-Regular.ttf
+    - family: Narnoor
+      fonts:
+        - asset: assets/fonts/Narnoor/Narnoor-Regular.ttf
+    - family: Belanosima
+      fonts:
+        - asset: assets/fonts/Belanosima/Belanosima-Regular.ttf
