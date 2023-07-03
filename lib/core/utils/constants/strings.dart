@@ -7,4 +7,11 @@ abstract class Strings {
       'So, while I nail down the finishing touches and sweep away any digital dust bunnies, feel free to ponder the mysteries of the universe, like why pizza slices are triangular but pizza boxes are square. 🍕🤔\n\n'
       'Rest assured, my soon-to-be-revealed portfolio will showcase the best of my Flutter wizardry. It\'ll make you say "Wow!" louder than a lion\'s roar. 🦁 Until then, if you have any questions, inquiries, or just need a good joke to lighten your day, don\'t hesitate to reach out.\n\n'
       "Stay tuned, folks! The grand unveiling is just around the corner, and it'll be worth the wait. 🎉🎈";
+  static const String introductionTitle =
+      "Welcome! I'm Marcos, a Flutter Developer. 🚀";
+
+  static const String introductionSubtitle =
+      'Get ready to dive into a world of stunning mobile experiences.\n\n'
+      'Oh, and by the way, this website was built with Flutter.\n\n'
+      'Scroll down to discover more about me and my work.';
 }

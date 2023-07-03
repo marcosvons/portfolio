@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       theme: ThemeManager.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const Homepage(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
     );
   }
