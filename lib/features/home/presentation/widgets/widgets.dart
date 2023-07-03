@@ -1,2 +1,2 @@
-export 'animated_button.dart';
-export 'animated_container.dart';
+export 'about_section.dart';
+export 'hero_section.dart';
