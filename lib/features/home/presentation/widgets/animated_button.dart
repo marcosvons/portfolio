@@ -60,12 +60,18 @@ class _AnimatedButtonState extends State<AnimatedButton>
             width: context.width * 0.15,
             height: context.height * 0.075,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: FractionalOffset.bottomCenter,
-                end: FractionalOffset.topCenter,
+              gradient: RadialGradient(
+                radius: 2,
                 colors: [
-                  widget.initialColor,
-                  _colorAnimation.value ?? widget.initialColor,
+                  if (_isHovered)
+                    context.colorScheme.tertiary
+                  else
+                    widget.initialColor,
+                  if (_isHovered)
+                    const Color(0xFF7BF4E8)
+                  // const Color(0xFFF05D5E)
+                  else
+                    _colorAnimation.value ?? widget.initialColor,
                 ],
               ),
               borderRadius: BorderRadius.circular(Dimens.xSmall),
@@ -81,6 +87,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
                 style: context.textTheme.bodyLarge!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
+                  fontFamily: Fonts.narnoor,
                 ),
               ),
             ),

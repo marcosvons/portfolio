@@ -1,6 +1,7 @@
 abstract class Animations {
   static const String constructionSite =
       'assets/lotties/construction-site.json';
+  static const String hi = 'assets/lotties/hi.json';
 }
 
 abstract class Images {

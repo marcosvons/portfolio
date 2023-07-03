@@ -9,7 +9,7 @@ class WaveClipper extends CustomClipper<Path> {
       ..cubicTo(
         size.width * 0.15,
         size.height * 0.9,
-        size.width * 0.3,
+        size.width * 0.2,
         size.height * 0.7,
         size.width * 0.4,
         size.height * 0.8,

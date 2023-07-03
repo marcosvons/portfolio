@@ -1,22 +1,60 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/core.dart';
 import 'package:portfolio/features/home/home.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late final ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        controller: _scrollController,
         children: [
-          const Hero(),
+          Hero(
+            scrollController: _scrollController,
+          ),
           Container(
             height: context.height,
             width: context.width,
             color: context.colorScheme.background,
-          )
+          ),
+          Container(
+            height: context.height,
+            width: context.width,
+            color: context.colorScheme.tertiary,
+          ),
+          Container(
+            height: context.height,
+            width: context.width,
+            color: context.colorScheme.primary,
+          ),
+          Container(
+            height: context.height,
+            width: context.width,
+            color: context.colorScheme.secondary,
+          ),
         ],
       ),
     );
@@ -26,7 +64,10 @@ class Home extends StatelessWidget {
 class Hero extends StatelessWidget {
   const Hero({
     super.key,
+    required this.scrollController,
   });
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +83,88 @@ class Hero extends StatelessWidget {
             clipper: WaveClipper(),
             child: Container(
               color: context.colorScheme.secondary,
-              height: context.height,
+              height: context.height * 0.875,
               width: context.width,
+            ),
+          ),
+          Positioned(
+            top: 0,
+            child: Container(
+              height: context.height * 0.1,
+              width: context.width,
+              color: context.colorScheme.secondary,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Dimens.xxLarge),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: context.width * 0.2,
+                      child: Lottie.asset(Animations.hi),
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      width: context.width * 0.45,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () => scrollController.animateTo(
+                              context.height,
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeIn,
+                            ),
+                            child: Text(
+                              'About',
+                              style: context.textTheme.displaySmall!.copyWith(
+                                fontFamily: Fonts.belanosima,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => scrollController.animateTo(
+                              context.height * 2,
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeIn,
+                            ),
+                            child: Text(
+                              'Portfolio',
+                              style: context.textTheme.displaySmall!.copyWith(
+                                fontFamily: Fonts.belanosima,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => scrollController.animateTo(
+                              context.height * 3,
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeIn,
+                            ),
+                            child: Text(
+                              'Experience',
+                              style: context.textTheme.displaySmall!.copyWith(
+                                fontFamily: Fonts.belanosima,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => scrollController.animateTo(
+                              context.height * 4,
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeIn,
+                            ),
+                            child: Text(
+                              'Contact',
+                              style: context.textTheme.displaySmall!.copyWith(
+                                fontFamily: Fonts.belanosima,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
           Center(
