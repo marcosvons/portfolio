@@ -26,4 +26,13 @@ abstract class Strings {
       'What fuels my passion for coding is the thrill of solving challenges. The dynamic nature of Flutter development allows me to constantly learn and adapt to new technologies, trends, and best practices. This drives me to deliver exceptional user experiences and stay at the forefront of this ever-evolving field. \n\n'
       'I believe that the true strength of a developer lies not only in technical expertise but also in a continuous thirst for knowledge and growth. I am committed to delivering high-quality code, collaborating effectively within teams, and embracing new technologies to provide innovative solutions.\n\n'
       "I'm thrilled to connect with fellow developers, clients, and collaborators who share a passion for creating exceptional mobile experiences. Let's embark on this exciting journey together!";
+
+  static const String maastersTitle = 'MaaSters (Under Development)';
+  static const String maastersDescription =
+      "Maasters is a professional Flutter web app that connects tech mentors with mentees, revolutionizing the learning experience. We personalize education based on each mentee's needs, differentiating ourselves from traditional online courses.\n\n"
+      'Technologies used include Cloud Firestore, Firebase Authentication, Cloud Storage, and Firebase Hosting. BLoC with Freezed ensures efficient state management. The project incorporates essential packages like rxdart, dartz, formz, flutter_localizations, intl, getIt, hive, and image_picker.\n\n'
+      'Implemented following the Very Good Architecture recommended by VeryGoodVentures (VGV), Maasters demonstrates a robust and scalable codebase. It sets a new standard in tech mentorship, offering personalized learning and expert guidance to mentees';
+  static const String maastersCodeLink =
+      'https://github.com/marcosvons/maasters';
+  static const String maastersLink = 'https://maasters.tech/';
 }

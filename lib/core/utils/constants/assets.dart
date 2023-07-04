@@ -11,6 +11,13 @@ abstract class Images {
   static const String witbor = 'assets/images/witbor_logo.webp';
   static const String globant = 'assets/images/globant_logo.webp';
   static const String urbetrack = 'assets/images/urbetrack_logo.webp';
+  static const String maasters = 'assets/images/maasters_logo.webp';
+  static const String maastersLogin = 'assets/images/maasters_login.webp';
+  static const String maastersHome = 'assets/images/maasters_home.webp';
+  static const String maastersOnboarding =
+      'assets/images/maasters_onboarding1.webp';
+  static const String maastersOnboarding2 =
+      'assets/images/maasters_onboarding2.webp';
 }
 
 abstract class Fonts {

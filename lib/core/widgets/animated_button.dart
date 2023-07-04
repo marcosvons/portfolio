@@ -5,13 +5,13 @@ class AnimatedButton extends StatefulWidget {
   const AnimatedButton({
     super.key,
     required this.initialColor,
-    required this.hoverColor,
+    required this.hoversColor,
     required this.text,
     required this.onPressed,
     this.duration = const Duration(milliseconds: 200),
   });
   final Color initialColor;
-  final Color hoverColor;
+  final List<Color> hoversColor;
   final String text;
   final VoidCallback onPressed;
   final Duration duration;
@@ -38,7 +38,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
 
     _colorAnimation = ColorTween(
       begin: widget.initialColor,
-      end: widget.hoverColor,
+      end: widget.hoversColor[0],
     ).animate(_animationController);
   }
 
@@ -61,15 +61,16 @@ class _AnimatedButtonState extends State<AnimatedButton>
             height: context.height * 0.075,
             decoration: BoxDecoration(
               gradient: RadialGradient(
-                radius: 2,
+                radius: 1.25,
                 colors: [
                   if (_isHovered)
-                    context.colorScheme.tertiary
+                    widget.hoversColor[0]
                   else
                     widget.initialColor,
                   if (_isHovered)
-                    const Color(0xFF7BF4E8)
-                  // const Color(0xFFF05D5E)
+                    widget.hoversColor.length > 1
+                        ? widget.hoversColor[1]
+                        : widget.hoversColor[0]
                   else
                     _colorAnimation.value ?? widget.initialColor,
                 ],

@@ -51,7 +51,7 @@ class HeroSection extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () => scrollController.animateTo(
-                              context.height,
+                              context.height * 1.1,
                               duration: const Duration(milliseconds: 1000),
                               curve: Curves.easeIn,
                             ),
@@ -64,7 +64,7 @@ class HeroSection extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () => scrollController.animateTo(
-                              context.height * 2,
+                              context.height * 2.25,
                               duration: const Duration(milliseconds: 1000),
                               curve: Curves.easeIn,
                             ),
@@ -132,8 +132,8 @@ class HeroSection extends StatelessWidget {
                                 ),
                                 gradient: LinearGradient(
                                   colors: [
-                                    context.colorScheme.primary,
                                     context.colorScheme.tertiary,
+                                    context.colorScheme.primary,
                                   ],
                                 ),
                               ),
@@ -151,11 +151,12 @@ class HeroSection extends StatelessWidget {
                                 style: context.textTheme.displayLarge!.copyWith(
                                   color: context.colorScheme.secondary,
                                   fontFamily: Fonts.belanosima,
+                                  fontWeight: FontWeight.w800,
                                 ),
                                 gradient: LinearGradient(
                                   colors: [
-                                    context.colorScheme.primary,
                                     context.colorScheme.tertiary,
+                                    context.colorScheme.primary,
                                   ],
                                 ),
                               ),
@@ -192,14 +193,20 @@ class HeroSection extends StatelessWidget {
                           children: [
                             AnimatedButton(
                               initialColor: context.colorScheme.primary,
-                              hoverColor: context.colorScheme.tertiary,
+                              hoversColor: [
+                                context.colorScheme.tertiary,
+                                const Color(0xFF7BF4E8),
+                              ],
                               text: 'CV',
                               onPressed: () {},
                               duration: const Duration(milliseconds: 250),
                             ),
                             AnimatedButton(
                               initialColor: context.colorScheme.primary,
-                              hoverColor: context.colorScheme.tertiary,
+                              hoversColor: [
+                                context.colorScheme.tertiary,
+                                const Color(0xFF7BF4E8),
+                              ],
                               text: 'Contact me',
                               onPressed: () {},
                             ),

@@ -60,8 +60,9 @@ class Homepage extends StatelessWidget {
                           AnimatedButton(
                             initialColor: context.colorScheme
                                 .primary, // Initial color of the button
-                            hoverColor: context.colorScheme
-                                .tertiary, // Color when the button is hovered
+                            hoversColor: [
+                              context.colorScheme.tertiary
+                            ], // Color when the button is hovered
                             duration: const Duration(
                               milliseconds: 300,
                             ), // Duration of the color transition
@@ -76,8 +77,9 @@ class Homepage extends StatelessWidget {
                           AnimatedButton(
                             initialColor: context.colorScheme
                                 .primary, // Initial color of the button
-                            hoverColor: context.colorScheme
-                                .tertiary, // Color when the button is hovered
+                            hoversColor: [
+                              context.colorScheme.tertiary
+                            ], // Color when the button is hovered
                             duration: const Duration(
                               milliseconds: 300,
                             ), // Duration of the color transition

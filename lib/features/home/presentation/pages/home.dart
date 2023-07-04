@@ -33,12 +33,10 @@ class _HomeState extends State<Home> {
           HeroSection(
             scrollController: _scrollController,
           ),
+          SizedBox(height: context.height * 0.1),
           const AboutSection(),
-          Container(
-            height: context.height,
-            width: context.width,
-            color: context.colorScheme.background,
-          ),
+          SizedBox(height: context.height * 0.2),
+          const PortfolioSection(),
           Container(
             height: context.height,
             width: context.width,

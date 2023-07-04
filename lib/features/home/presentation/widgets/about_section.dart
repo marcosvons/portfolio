@@ -16,7 +16,7 @@ class AboutSection extends StatelessWidget {
         children: [
           CustomPaint(
             painter: DecorativeSpotsPainter(
-              numSpots: 50,
+              numSpots: 200,
               spotColor: context.colorScheme.secondary,
             ),
             size: MediaQuery.of(context).size,
@@ -39,8 +39,8 @@ class AboutSection extends StatelessWidget {
                     'About',
                     gradient: LinearGradient(
                       colors: [
-                        context.colorScheme.primary,
                         context.colorScheme.tertiary,
+                        context.colorScheme.primary,
                       ],
                     ),
                     style: context.textTheme.displayLarge!.copyWith(
@@ -163,7 +163,9 @@ class ExperiencePage extends StatelessWidget {
                 horizontal: Dimens.small,
               ),
               child: HoverAndRedirectContainer(
-                url: 'https://www.witbor.com/',
+                onPressed: () async => await launchURL(
+                  'https://www.witbor.com/',
+                ),
                 child: Container(
                   height: context.height * 0.2,
                   width: context.width * 0.1,
@@ -201,7 +203,9 @@ class ExperiencePage extends StatelessWidget {
                 horizontal: Dimens.small,
               ),
               child: HoverAndRedirectContainer(
-                url: 'https://www.globant.com/',
+                onPressed: () async => await launchURL(
+                  'https://www.globant.com/',
+                ),
                 child: Container(
                   height: context.height * 0.2,
                   width: context.width * 0.1,
@@ -239,7 +243,9 @@ class ExperiencePage extends StatelessWidget {
                 horizontal: Dimens.small,
               ),
               child: HoverAndRedirectContainer(
-                url: 'https://www.urbetrack.com/',
+                onPressed: () async => await launchURL(
+                  'https://www.urbetrack.com/',
+                ),
                 child: Container(
                   height: context.height * 0.2,
                   width: context.width * 0.1,
@@ -294,7 +300,9 @@ class EducationPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             HoverAndRedirectContainer(
-              url: 'https://udesa.edu.ar',
+              onPressed: () async => await launchURL(
+                'https://udesa.edu.ar',
+              ),
               child: Container(
                 height: context.height * 0.3,
                 width: context.width * 0.2,
@@ -311,7 +319,9 @@ class EducationPage extends StatelessWidget {
               ),
             ),
             HoverAndRedirectContainer(
-              url: 'https://flutter.dev/',
+              onPressed: () async => await launchURL(
+                'https://flutter.dev/',
+              ),
               child: Container(
                 height: context.height * 0.3,
                 width: context.width * 0.2,
