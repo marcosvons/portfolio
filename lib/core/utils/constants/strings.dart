@@ -31,7 +31,7 @@ abstract class Strings {
   static const String maastersDescription =
       "Maasters is a professional Flutter web app that connects tech mentors with mentees, revolutionizing the learning experience. We personalize education based on each mentee's needs, differentiating ourselves from traditional online courses.\n\n"
       'Technologies used include Cloud Firestore, Firebase Authentication, Cloud Storage, and Firebase Hosting. BLoC with Freezed ensures efficient state management. The project incorporates essential packages like rxdart, dartz, formz, flutter_localizations, intl, getIt, hive, and image_picker.\n\n'
-      'Implemented following the Very Good Architecture recommended by VeryGoodVentures (VGV), Maasters demonstrates a robust and scalable codebase. It sets a new standard in tech mentorship, offering personalized learning and expert guidance to mentees';
+      'Implemented following the Very Good Architecture recommended by Very Good Ventures (VGV), Maasters demonstrates a robust and scalable codebase. It sets a new standard in tech mentorship, offering personalized learning and expert guidance to mentees';
   static const String maastersCodeLink =
       'https://github.com/marcosvons/maasters';
   static const String maastersLink = 'https://maasters.tech/';

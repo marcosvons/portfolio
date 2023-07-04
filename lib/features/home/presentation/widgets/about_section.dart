@@ -14,12 +14,20 @@ class AboutSection extends StatelessWidget {
       color: context.colorScheme.background,
       child: Stack(
         children: [
-          CustomPaint(
-            painter: DecorativeSpotsPainter(
-              numSpots: 200,
-              spotColor: context.colorScheme.secondary,
+          ClipPath(
+            clipper: ArtisticBackgroundClipper(),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    context.colorScheme.primary,
+                    context.colorScheme.secondary,
+                  ],
+                ),
+              ),
+              height: context.height * 0.875,
+              width: context.width,
             ),
-            size: MediaQuery.of(context).size,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
