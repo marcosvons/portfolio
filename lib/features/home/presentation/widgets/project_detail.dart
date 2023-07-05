@@ -1,15 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/core.dart';
+import 'package:video_player/video_player.dart';
 
-class ProjectDetail extends StatelessWidget {
-  ProjectDetail({
+class ProjectDetail extends StatefulWidget {
+  const ProjectDetail({
     super.key,
     required this.title,
     required this.description,
     required this.images,
     required this.codeLink,
     this.projectLink,
+    this.video,
   });
 
   final String title;
@@ -17,8 +20,43 @@ class ProjectDetail extends StatelessWidget {
   final List<String> images;
   final String codeLink;
   final String? projectLink;
+  final String? video;
 
-  final CarouselController carouselController = CarouselController();
+  @override
+  State<ProjectDetail> createState() => _ProjectDetailState();
+}
+
+class _ProjectDetailState extends State<ProjectDetail> {
+  late final CarouselController carouselController;
+  late final VideoPlayerController videoPlayerController;
+  late final ChewieController chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+    carouselController = CarouselController();
+    if (widget.video != null) {
+      videoPlayerController = VideoPlayerController.asset(
+        widget.video!,
+      );
+      videoPlayerController.initialize();
+      chewieController = ChewieController(
+        videoPlayerController: videoPlayerController,
+        autoPlay: true,
+        looping: true,
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    if (widget.video != null) {
+      videoPlayerController.dispose();
+      chewieController.dispose();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -49,22 +87,10 @@ class ProjectDetail extends StatelessWidget {
                   height: context.height * 0.5,
                   viewportFraction: 1,
                   autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayInterval:
+                      Duration(seconds: widget.video != null ? 5 : 3),
                 ),
-                items: const [
-                  Image(
-                    image: AssetImage(Images.maastersLogin),
-                  ),
-                  Image(
-                    image: AssetImage(Images.maastersOnboarding),
-                  ),
-                  Image(
-                    image: AssetImage(Images.maastersOnboarding2),
-                  ),
-                  Image(
-                    image: AssetImage(Images.maastersHome),
-                  ),
-                ],
+                items: buildCarouselWidgets(),
               ),
             ),
             const SizedBox(width: Dimens.large),
@@ -83,7 +109,7 @@ class ProjectDetail extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      widget.title,
                       style: context.textTheme.displayMedium!.copyWith(
                         color: context.colorScheme.secondary,
                         fontFamily: Fonts.belanosima,
@@ -93,7 +119,7 @@ class ProjectDetail extends StatelessWidget {
                     Expanded(
                       child: SingleChildScrollView(
                         child: Text(
-                          description,
+                          widget.description,
                           style: context.textTheme.bodyText1!.copyWith(
                             color: context.colorScheme.background,
                             fontFamily: Fonts.narnoor,
@@ -101,6 +127,7 @@ class ProjectDetail extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(height: Dimens.large),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -113,10 +140,10 @@ class ProjectDetail extends StatelessWidget {
                           text: 'View Project',
                           duration: const Duration(milliseconds: 250),
                           onPressed: () => launchURL(
-                            'https://github.com/marcosvons/maasters',
+                            widget.codeLink,
                           ),
                         ),
-                        if (projectLink != null)
+                        if (widget.projectLink != null)
                           AnimatedButton(
                             initialColor: context.colorScheme.background,
                             hoversColor: [
@@ -126,7 +153,7 @@ class ProjectDetail extends StatelessWidget {
                             text: 'Visit Website',
                             duration: const Duration(milliseconds: 250),
                             onPressed: () => launchURL(
-                              'https://maasters.tech/',
+                              widget.projectLink!,
                             ),
                           ),
                       ],
@@ -139,5 +166,21 @@ class ProjectDetail extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  List<Widget> buildCarouselWidgets() {
+    final widgets = <Widget>[];
+
+    for (var i = 0; i < widget.images.length; i++) {
+      final imageWidget = Image.asset(widget.images[i]);
+      widgets.add(imageWidget);
+    }
+
+    if (widget.video != null) {
+      final videoWidget = Chewie(controller: chewieController);
+      widgets.add(videoWidget);
+    }
+
+    return widgets;
   }
 }

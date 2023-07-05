@@ -52,6 +52,8 @@ class PortfolioSection extends StatelessWidget {
                           Images.maastersLogin,
                           Images.maastersOnboarding,
                           Images.maastersOnboarding2,
+                          Images.maastersOnboarding3,
+                          Images.maastersOnboarding4,
                           Images.maastersHome,
                         ],
                         codeLink: Strings.maastersCodeLink,
@@ -63,7 +65,7 @@ class PortfolioSection extends StatelessWidget {
                         borderRadius: const BorderRadius.all(
                           Radius.circular(Dimens.small),
                         ),
-                        color: context.colorScheme.onBackground,
+                        color: context.colorScheme.surface,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(Dimens.xSmall),
@@ -74,47 +76,93 @@ class PortfolioSection extends StatelessWidget {
                     ),
                   ),
                   HoverAndRedirectContainer(
-                    onPressed: () {},
+                    onPressed: () {
+                      buildPopupContainer(
+                        context,
+                        title: Strings.rickAndMortyTitle,
+                        description: Strings.rickAndMortyDescription,
+                        images: [
+                          Images.rickAndMortyLogin,
+                          Images.rickAndMortyDrawer,
+                          Images.rickAndMortyHome,
+                          Images.rickAndMortyCharacter,
+                          Images.rickAndMortyFavorites,
+                        ],
+                        codeLink: Strings.rickAndMortyCodeLink,
+                      );
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(Dimens.small),
                         ),
-                        color: context.colorScheme.onBackground,
+                        color: context.colorScheme.surface,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(Dimens.xSmall),
-                        child: Image.asset(Images.globant),
+                        child: Image.asset(
+                          Images.rickAndMortyLogo,
+                        ),
                       ),
                     ),
                   ),
                   HoverAndRedirectContainer(
-                    onPressed: () {},
+                    onPressed: () {
+                      buildPopupContainer(
+                        context,
+                        title: Strings.hearthstoneTitle,
+                        description: Strings.hearthstoneDescription,
+                        images: [
+                          Images.hearthstoneHome,
+                          Images.hearthstoneDrawer,
+                          Images.hearthstoneCards,
+                        ],
+                        video: Videos.hearthstoneCardFlipVideo,
+                        codeLink: Strings.rickAndMortyCodeLink,
+                      );
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(Dimens.small),
                         ),
-                        color: context.colorScheme.onBackground,
+                        color: context.colorScheme.surface,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(Dimens.xSmall),
-                        child: Image.asset(Images.maasters),
+                        child: Image.asset(
+                          Images.hearthstoneLogo,
+                        ),
                       ),
                     ),
                   ),
                   HoverAndRedirectContainer(
-                    onPressed: () {},
+                    onPressed: () {
+                      buildPopupContainer(
+                        context,
+                        title: Strings.hearthstoneTitle,
+                        description: Strings.hearthstoneDescription,
+                        images: [
+                          Images.hearthstoneHome,
+                          Images.hearthstoneDrawer,
+                          Images.hearthstoneCards,
+                        ],
+                        video: Videos.hearthstoneCardFlipVideo,
+                        codeLink: Strings.rickAndMortyCodeLink,
+                      );
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(Dimens.small),
                         ),
-                        color: context.colorScheme.onBackground,
+                        color: context.colorScheme.surface,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(Dimens.xSmall),
-                        child: Image.asset(Images.maasters),
+                        child: Image.asset(
+                          Images.starWarsLogo,
+                        ),
                       ),
                     ),
                   ),

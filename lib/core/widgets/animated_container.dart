@@ -61,6 +61,7 @@ void buildPopupContainer(
   required List<String> images,
   required String codeLink,
   String? projectLink,
+  String? video,
 }) {
   showDialog(
     context: context,
@@ -76,6 +77,7 @@ void buildPopupContainer(
             images: images,
             codeLink: codeLink,
             projectLink: projectLink,
+            video: video,
           ),
         ),
       );

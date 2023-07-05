@@ -27,6 +27,7 @@ class ThemeManager {
       tertiary: Color(0xff45F0DF),
       background: Color(0xFF333333),
       onBackground: Colors.white,
+      surface: Color(0xFFFAFAFA),
     ),
     textTheme: const TextTheme(
       labelLarge: TextStyle(),

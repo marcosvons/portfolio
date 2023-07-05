@@ -35,4 +35,18 @@ abstract class Strings {
   static const String maastersCodeLink =
       'https://github.com/marcosvons/maasters';
   static const String maastersLink = 'https://maasters.tech/';
+  static const String rickAndMortyTitle = 'Rick and Morty';
+  static const String rickAndMortyDescription =
+      'Introducing the Rick And Morty Character Explorer app - your gateway to discovering the captivating world of Rick and Morty. Dive into a vast array of characters, access their detailed profiles, and effortlessly manage your favorites.\n\n'
+      "Powered by the Rick and Morty API (rickandmortyapi.com), this app offers real-time character information, keeping you up-to-date with the latest details. Uncover fascinating insights into each character's origins, affiliations, and unique traits.\n\n"
+      'With the Rick And Morty Character Explorer, personalization is key. Easily add or remove characters from your favorites, creating a tailored collection that reflects your preferences. Seamlessly store and retrieve favorites using Hive, a lightweight and efficient NoSQL database, while Firebase Authentication ensures secure access to your personalized content.\n\n'
+      'Efficient state management is achieved through the combination of BLoC and Freezed. This winning approach allows for smooth interactions and a reliable app experience. Built on the solid foundation of Very Good Architecture by Very Good Ventures, this app guarantees a maintainable codebase for future enhancements.';
+  static const String rickAndMortyCodeLink =
+      'https://github.com/marcosvons/rick-and-morty';
+  static const String hearthstoneTitle = 'Hearthstone';
+  static const String hearthstoneDescription =
+      'Introducing the Flutter Hearthstone Card Catalog, a remarkable app showcasing my journey into Dart and Flutter. It served as my first project, laying a solid foundation to master the fundamentals of development.\n\n'
+      "Explore Hearthstone effortlessly with a vast card collection. Navigate intuitively through the menu to access a rich selection of cards. The app leverages the Hearthstone API for real-time, comprehensive card information. Dive into each card's unique attributes, abilities, and strategic value. With a user-centric approach, the app offers delightful interactions. Flip cards with captivating animations to reveal hidden secrets. Favorite cards to curate your personalized collection.\n\n"
+      'For state management, I built Cubits from scratch, opting for a minimalist approach without external packages. Custom classes add information to streams, efficiently managed with StreamBuilders.'
+      'Following the renowned Clean Architecture principles, the app ensures separation of concerns and maintainability. The robust codebase accommodates future enhancements.';
 }

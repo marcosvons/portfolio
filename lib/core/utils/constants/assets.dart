@@ -18,6 +18,35 @@ abstract class Images {
       'assets/images/maasters_onboarding1.webp';
   static const String maastersOnboarding2 =
       'assets/images/maasters_onboarding2.webp';
+  static const String maastersOnboarding3 =
+      'assets/images/maasters_onboarding3.webp';
+  static const String maastersOnboarding4 =
+      'assets/images/maasters_onboarding4.webp';
+  static const String rickAndMortyLogo =
+      'assets/images/rick_and_morty_logo.webp';
+  static const String rickAndMortyLogin =
+      'assets/images/rick_and_morty_login.webp';
+  static const String rickAndMortyDrawer =
+      'assets/images/rick_and_morty_drawer.webp';
+  static const String rickAndMortyHome =
+      'assets/images/rick_and_morty_characters.webp';
+  static const String rickAndMortyCharacter =
+      'assets/images/rick_and_morty_character_detail.webp';
+  static const String rickAndMortyFavorites =
+      'assets/images/rick_and_morty_favorites.webp';
+  static const String hearthstoneLogo = 'assets/images/hearthstone_logo.webp';
+  static const String hearthstoneHome = 'assets/images/hearthstone_home.webp';
+  static const String hearthstoneCards = 'assets/images/hearthstone_cards.webp';
+  static const String hearthstoneDrawer =
+      'assets/images/hearthstone_drawer.webp';
+  static const String hearthstoneFavorites =
+      'assets/images/hearthstone_favorites.webp';
+  static const String starWarsLogo = 'assets/images/star_wars_logo.webp';
+}
+
+abstract class Videos {
+  static const String hearthstoneCardFlipVideo =
+      'assets/videos/hearthstone_card_flip.mp4';
 }
 
 abstract class Fonts {
