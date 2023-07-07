@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/features/home/home.dart';
 
 class HoverAndRedirectContainer extends StatefulWidget {
   const HoverAndRedirectContainer({
-    Key? key,
-    required this.url,
+    super.key,
     required this.child,
+    required this.onPressed,
     this.hoverScale = 1.1,
-    this.shadowColor = Colors.black12,
-    this.shadowBlurRadius = 8.0,
-    this.shadowSpreadRadius = 0.0,
-    this.shadowOffset = const Offset(0, 2),
-  }) : super(key: key);
+  });
 
-  final String url;
   final Widget child;
   final double hoverScale;
-  final Color shadowColor;
-  final double shadowBlurRadius;
-  final double shadowSpreadRadius;
-  final Offset shadowOffset;
+  final VoidCallback onPressed;
 
   @override
   _HoverAndRedirectContainerState createState() =>
@@ -35,10 +27,10 @@ class _HoverAndRedirectContainerState extends State<HoverAndRedirectContainer> {
       onEnter: (_) => _mouseEnter(true),
       onExit: (_) => _mouseEnter(false),
       child: GestureDetector(
-        onTap: _launchURL,
+        onTap: widget.onPressed,
         child: TweenAnimationBuilder<double>(
           tween: Tween<double>(
-            begin: 1.0,
+            begin: 1,
             end: _isHovered ? widget.hoverScale : 1.0,
           ),
           duration: const Duration(milliseconds: 200),
@@ -49,19 +41,7 @@ class _HoverAndRedirectContainerState extends State<HoverAndRedirectContainer> {
               child: child,
             );
           },
-          child: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: widget.shadowColor,
-                  blurRadius: widget.shadowBlurRadius,
-                  spreadRadius: widget.shadowSpreadRadius,
-                  offset: widget.shadowOffset,
-                ),
-              ],
-            ),
-            child: widget.child,
-          ),
+          child: widget.child,
         ),
       ),
     );
@@ -72,12 +52,35 @@ class _HoverAndRedirectContainerState extends State<HoverAndRedirectContainer> {
       _isHovered = isHovered;
     });
   }
+}
 
-  Future<void> _launchURL() async {
-    if (await canLaunchUrl(Uri.parse(widget.url))) {
-      await launchUrl(Uri.parse(widget.url));
-    } else {
-      throw 'Could not launch ${widget.url}';
-    }
-  }
+void buildPopupContainer(
+  BuildContext context, {
+  required String title,
+  required String description,
+  required List<String> images,
+  required String codeLink,
+  String? projectLink,
+  String? video,
+}) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        content: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.8,
+          color: Colors.white,
+          child: ProjectDetail(
+            title: title,
+            description: description,
+            images: images,
+            codeLink: codeLink,
+            projectLink: projectLink,
+            video: video,
+          ),
+        ),
+      );
+    },
+  );
 }

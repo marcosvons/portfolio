@@ -5,9 +5,9 @@ const inter = 'Inter';
 class ThemeManager {
   static ThemeData light = ThemeData.light().copyWith(
     scaffoldBackgroundColor: const Color(0xFF333333),
-    textSelectionTheme: const TextSelectionThemeData(
-      selectionColor: Color(0xFFE3E6EA),
-      cursorColor: Color(0xff383838),
+    textSelectionTheme: TextSelectionThemeData(
+      selectionColor: const Color(0xff45F0DF).withOpacity(0.45),
+      cursorColor: Colors.white,
     ),
     appBarTheme: const AppBarTheme(
       shadowColor: Color(0xffC77DFF),
@@ -27,6 +27,8 @@ class ThemeManager {
       tertiary: Color(0xff45F0DF),
       background: Color(0xFF333333),
       onBackground: Colors.white,
+      surface: Color(0xFFFAFAFA),
+      shadow: Color.fromARGB(255, 103, 103, 103),
     ),
     textTheme: const TextTheme(
       labelLarge: TextStyle(),

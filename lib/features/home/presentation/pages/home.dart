@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/core.dart';
 import 'package:portfolio/features/features.dart';
 
@@ -26,25 +28,22 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        controller: _scrollController,
-        children: [
-          HeroSection(
-            scrollController: _scrollController,
-          ),
-          const AboutSection(),
-          Container(
-            height: context.height,
-            width: context.width,
-            color: context.colorScheme.background,
-          ),
-          Container(
-            height: context.height,
-            width: context.width,
-            color: context.colorScheme.primary,
-          ),
-        ],
+    return BlocProvider(
+      create: (context) => FormCubit(dio: Dio()),
+      child: Scaffold(
+        body: ListView(
+          controller: _scrollController,
+          children: [
+            HeroSection(
+              scrollController: _scrollController,
+            ),
+            SizedBox(height: context.height * 0.1),
+            const AboutSection(),
+            SizedBox(height: context.height * 0.2),
+            const PortfolioSection(),
+            ContactSection(),
+          ],
+        ),
       ),
     );
   }
