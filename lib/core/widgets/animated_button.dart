@@ -6,13 +6,13 @@ class AnimatedButton extends StatefulWidget {
     super.key,
     required this.initialColor,
     required this.hoversColor,
-    required this.text,
+    required this.child,
     required this.onPressed,
     this.duration = const Duration(milliseconds: 200),
   });
   final Color initialColor;
   final List<Color> hoversColor;
-  final String text;
+  final Widget child;
   final VoidCallback onPressed;
   final Duration duration;
 
@@ -72,7 +72,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
                         ? widget.hoversColor[1]
                         : widget.hoversColor[0]
                   else
-                    _colorAnimation.value ?? widget.initialColor,
+                    widget.initialColor,
                 ],
               ),
               borderRadius: BorderRadius.circular(Dimens.xSmall),
@@ -83,14 +83,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
                 backgroundColor: Colors.transparent,
                 elevation: 0,
               ),
-              child: Text(
-                widget.text,
-                style: context.textTheme.bodyLarge!.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: Fonts.narnoor,
-                ),
-              ),
+              child: widget.child,
             ),
           );
         },

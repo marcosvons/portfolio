@@ -42,6 +42,15 @@ abstract class Images {
   static const String hearthstoneFavorites =
       'assets/images/hearthstone_favorites.webp';
   static const String starWarsLogo = 'assets/images/star_wars_logo.webp';
+  static const String starWarsHome = 'assets/images/star_wars_home.webp';
+  static const String starWarsCharacters =
+      'assets/images/star_wars_characters.webp';
+  static const String starWarsCharacterDetail =
+      'assets/images/star_wars_character_detail.webp';
+  static const String starWarsCharacterSighting =
+      'assets/images/star_wars_sighting.webp';
+  static const String githubLogo = 'assets/images/github_logo.webp';
+  static const String linkedinLogo = 'assets/images/linkedin_logo.webp';
 }
 
 abstract class Videos {
@@ -54,4 +63,11 @@ abstract class Fonts {
   static const String inter = 'Inter';
   static const String narnoor = 'Narnoor';
   static const String belanosima = 'Belanosima';
+}
+
+abstract class Files {
+  static const String englishResume =
+      'assets/files/EN_Marcos_von_Stremayr_CV.pdf';
+  static const String spanishResume =
+      'assets/files/ES_Marcos_von_Stremayr_CV.pdf';
 }

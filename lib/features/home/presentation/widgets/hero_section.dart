@@ -24,7 +24,14 @@ class HeroSection extends StatelessWidget {
           ClipPath(
             clipper: WaveClipper(),
             child: Container(
-              color: context.colorScheme.secondary,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    context.colorScheme.secondary,
+                    context.colorScheme.primary,
+                  ],
+                ),
+              ),
               height: context.height * 0.875,
               width: context.width,
             ),
@@ -34,7 +41,14 @@ class HeroSection extends StatelessWidget {
             child: Container(
               height: context.height * 0.1,
               width: context.width,
-              color: context.colorScheme.secondary,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    context.colorScheme.secondary,
+                    context.colorScheme.primary,
+                  ],
+                ),
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Dimens.xxLarge),
                 child: Row(
@@ -77,7 +91,7 @@ class HeroSection extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () => scrollController.animateTo(
-                              context.height * 3,
+                              context.height * 3.3,
                               duration: const Duration(milliseconds: 1000),
                               curve: Curves.easeIn,
                             ),
@@ -164,10 +178,10 @@ class HeroSection extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: Dimens.xxLarge),
+                      const SizedBox(height: Dimens.xxLarge * 1.5),
                       SizedBox(
                         width: context.width * 0.4,
-                        height: context.height * 0.25,
+                        height: context.height * 0.225,
                         child: AnimatedTextKit(
                           totalRepeatCount: 1,
                           animatedTexts: [
@@ -179,7 +193,7 @@ class HeroSection extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                                 fontFamily: Fonts.narnoor,
                               ),
-                              speed: const Duration(milliseconds: 40),
+                              speed: const Duration(milliseconds: 20),
                             ),
                           ],
                           stopPauseOnTap: true,
@@ -197,9 +211,23 @@ class HeroSection extends StatelessWidget {
                                 context.colorScheme.tertiary,
                                 const Color(0xFF7BF4E8),
                               ],
-                              text: 'CV',
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURL(Strings.enCvUrl, context,
+                                    errorMessage:
+                                        'An error occurred while downloading the CV.');
+                                launchURL(Strings.esCvUrl, context,
+                                    errorMessage:
+                                        'An error occurred while downloading the CV.');
+                              },
                               duration: const Duration(milliseconds: 250),
+                              child: Text(
+                                'CV',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: Fonts.narnoor,
+                                ),
+                              ),
                             ),
                             AnimatedButton(
                               initialColor: context.colorScheme.primary,
@@ -207,8 +235,19 @@ class HeroSection extends StatelessWidget {
                                 context.colorScheme.tertiary,
                                 const Color(0xFF7BF4E8),
                               ],
-                              text: 'Contact me',
-                              onPressed: () {},
+                              child: Text(
+                                'Contact me',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: Fonts.narnoor,
+                                ),
+                              ),
+                              onPressed: () => scrollController.animateTo(
+                                context.height * 3.3,
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeIn,
+                              ),
                             ),
                           ],
                         ),

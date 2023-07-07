@@ -3,7 +3,6 @@ import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/core.dart';
-import 'package:portfolio/features/features.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -66,8 +65,14 @@ class Homepage extends StatelessWidget {
                             duration: const Duration(
                               milliseconds: 300,
                             ), // Duration of the color transition
-
-                            text: 'Checkout my GitHub profile',
+                            child: Text(
+                              'Checkout my Github profile',
+                              style: context.textTheme.bodyLarge!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.narnoor,
+                              ),
+                            ),
 
                             onPressed: () => js.context.callMethod(
                               'open',
@@ -83,8 +88,14 @@ class Homepage extends StatelessWidget {
                             duration: const Duration(
                               milliseconds: 300,
                             ), // Duration of the color transition
-
-                            text: 'Checkout my LinkedIn profile',
+                            child: Text(
+                              'Checkout my linkedin profile',
+                              style: context.textTheme.bodyLarge!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.narnoor,
+                              ),
+                            ),
 
                             onPressed: () => js.context.callMethod(
                               'open',

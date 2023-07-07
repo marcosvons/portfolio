@@ -137,10 +137,20 @@ class _ProjectDetailState extends State<ProjectDetail> {
                             context.colorScheme.secondary,
                             const Color.fromARGB(255, 6, 19, 167)
                           ],
-                          text: 'View Project',
                           duration: const Duration(milliseconds: 250),
                           onPressed: () => launchURL(
                             widget.codeLink,
+                            context,
+                            errorMessage:
+                                'An error occurred while trying to open the projects code.',
+                          ),
+                          child: Text(
+                            'View Project',
+                            style: context.textTheme.bodyLarge!.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: Fonts.narnoor,
+                            ),
                           ),
                         ),
                         if (widget.projectLink != null)
@@ -150,10 +160,20 @@ class _ProjectDetailState extends State<ProjectDetail> {
                               context.colorScheme.secondary,
                               const Color.fromARGB(255, 6, 19, 167)
                             ],
-                            text: 'Visit Website',
                             duration: const Duration(milliseconds: 250),
                             onPressed: () => launchURL(
                               widget.projectLink!,
+                              context,
+                              errorMessage:
+                                  'An error occurred while trying to open the projects website.',
+                            ),
+                            child: Text(
+                              'Visit Website',
+                              style: context.textTheme.bodyLarge!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.narnoor,
+                              ),
                             ),
                           ),
                       ],
