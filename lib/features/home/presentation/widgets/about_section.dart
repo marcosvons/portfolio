@@ -1,0 +1,402 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/core/core.dart';
+
+class AboutSection extends StatelessWidget {
+  const AboutSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: context.height,
+      width: context.width,
+      color: context.colorScheme.background,
+      child: Stack(
+        children: [
+          ClipPath(
+            clipper: ArtisticBackgroundClipper(),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    context.colorScheme.secondary,
+                    context.colorScheme.primary,
+                  ],
+                ),
+              ),
+              height: context.height * 0.875,
+              width: context.width,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.xxLarge,
+              vertical: Dimens.large,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: context.width * 0.1,
+                    right: context.width * 0.1,
+                    bottom: Dimens.xxLarge,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      GradientText(
+                        'About',
+                        gradient: LinearGradient(
+                          colors: [
+                            context.colorScheme.tertiary,
+                            context.colorScheme.primary,
+                          ],
+                        ),
+                        style: context.textTheme.displayLarge!.copyWith(
+                          fontFamily: Fonts.belanosima,
+                          fontSize: 80,
+                        ),
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        height: context.height * 0.075,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(Dimens.small),
+                            ),
+                            backgroundColor: context.colorScheme.primary,
+                          ),
+                          onPressed: () => launchURL(
+                              Strings.linkedinProfile, context,
+                              errorMessage:
+                                  'Could not launch LinkedIn profile'),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                Images.linkedinLogo,
+                                height: context.height * 0.025,
+                                color: context.colorScheme.onBackground,
+                              ),
+                              const SizedBox(width: Dimens.medium),
+                              Text(
+                                'Visit my LinkedIn',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: Fonts.narnoor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Center(
+                  child: SizedBox(
+                    width: context.width * 0.8,
+                    height: context.height * 0.75,
+                    child: const AboutPageView(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AboutPageView extends StatefulWidget {
+  const AboutPageView({
+    super.key,
+  });
+
+  @override
+  State<AboutPageView> createState() => _AboutPageViewState();
+}
+
+class _AboutPageViewState extends State<AboutPageView> {
+  late final PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: () => _pageController.previousPage(
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeIn,
+          ),
+          child: Icon(
+            Icons.arrow_back_ios_new,
+            size: Dimens.xxLarge,
+            color: context.colorScheme.tertiary,
+          ),
+        ),
+        SizedBox(width: context.width * 0.1),
+        Expanded(
+          child: PageView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            children: [
+              const EducationPage(),
+              const ExperiencePage(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    Strings.aboutConclusion,
+                    style: context.textTheme.titleLarge!.copyWith(
+                      fontFamily: Fonts.narnoor,
+                      fontSize: Dimens.large,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(width: context.width * 0.1),
+        GestureDetector(
+          onTap: () => _pageController.nextPage(
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeIn,
+          ),
+          child: Icon(
+            Icons.arrow_forward_ios,
+            size: Dimens.xxLarge,
+            color: context.colorScheme.tertiary,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ExperiencePage extends StatelessWidget {
+  const ExperiencePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 6,
+                horizontal: Dimens.small,
+              ),
+              child: HoverAndRedirectContainer(
+                onPressed: () async => await launchURL(
+                  'https://www.witbor.com/',
+                  context,
+                  errorMessage: 'Could not launch Witbor website',
+                ),
+                child: Container(
+                  height: context.height * 0.2,
+                  width: context.width * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(Dimens.small),
+                    ),
+                    color: context.colorScheme.onBackground,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(Dimens.xSmall),
+                    child: Image.asset(Images.witbor),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: context.width * 0.05),
+            Expanded(
+              child: Text(
+                Strings.witborExperience,
+                style: context.textTheme.bodyLarge!.copyWith(
+                  fontFamily: Fonts.narnoor,
+                ),
+              ),
+            )
+          ],
+        ),
+        const SizedBox(height: Dimens.large),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: Dimens.xSmall,
+                horizontal: Dimens.small,
+              ),
+              child: HoverAndRedirectContainer(
+                onPressed: () async => await launchURL(
+                  'https://www.globant.com/',
+                  context,
+                  errorMessage: 'Could not launch Globant website',
+                ),
+                child: Container(
+                  height: context.height * 0.2,
+                  width: context.width * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(Dimens.small),
+                    ),
+                    color: context.colorScheme.onBackground,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(Dimens.xSmall),
+                    child: Image.asset(Images.globant),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: context.width * 0.05),
+            Expanded(
+              child: Text(
+                Strings.globantExperience,
+                style: context.textTheme.bodyLarge!.copyWith(
+                  fontFamily: Fonts.narnoor,
+                ),
+              ),
+            )
+          ],
+        ),
+        const SizedBox(height: Dimens.large),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 6,
+                horizontal: Dimens.small,
+              ),
+              child: HoverAndRedirectContainer(
+                onPressed: () async => await launchURL(
+                  'https://www.urbetrack.com/',
+                  context,
+                  errorMessage: 'Could not launch Urbetrack website',
+                ),
+                child: Container(
+                  height: context.height * 0.2,
+                  width: context.width * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(Dimens.small),
+                    ),
+                    color: context.colorScheme.onBackground,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(Dimens.xSmall),
+                    child: Image.asset(Images.urbetrack),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: context.width * 0.05),
+            Expanded(
+              child: Text(
+                Strings.urbetrackExperience,
+                style: context.textTheme.bodyLarge!.copyWith(
+                  fontFamily: Fonts.narnoor,
+                ),
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class EducationPage extends StatelessWidget {
+  const EducationPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          Strings.educationDescription,
+          style: context.textTheme.titleLarge!.copyWith(
+            fontFamily: Fonts.narnoor,
+            fontSize: Dimens.large,
+          ),
+        ),
+        const SizedBox(height: Dimens.large),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            HoverAndRedirectContainer(
+              onPressed: () async => await launchURL(
+                'https://udesa.edu.ar',
+                context,
+                errorMessage: 'Could not launch UdeSA website',
+              ),
+              child: Container(
+                height: context.height * 0.2,
+                width: context.width * 0.15,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(Dimens.small),
+                  ),
+                  color: context.colorScheme.onBackground,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(Dimens.xSmall),
+                  child: Image.asset(Images.udesa),
+                ),
+              ),
+            ),
+            HoverAndRedirectContainer(
+              onPressed: () async => await launchURL(
+                'https://flutter.dev/',
+                context,
+                errorMessage: 'Could not launch Flutter website',
+              ),
+              child: Container(
+                height: context.height * 0.2,
+                width: context.width * 0.15,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(Dimens.small),
+                  ),
+                  color: context.colorScheme.onBackground,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(Dimens.xSmall),
+                  child: Image.asset(Images.flutter),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}

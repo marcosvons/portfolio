@@ -35,12 +35,12 @@ class Homepage extends StatelessWidget {
                     const SizedBox(height: Dimens.xxLarge * 1.5),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: context.width * 0.15),
+                        horizontal: context.width * 0.15,
+                      ),
                       child: Text(
                         Strings.websiteUnderConstruction,
                         style: context.textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: context.colorScheme.tertiary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -56,60 +56,52 @@ class Homepage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          SizedBox(
-                            width: isWeb
-                                ? context.width * 0.3
-                                : context.width * 0.9,
-                            height: isWeb
-                                ? context.height * 0.1
-                                : context.height * 0.2,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                  context.colorScheme.onPrimary,
-                                ),
+                          AnimatedButton(
+                            initialColor: context.colorScheme
+                                .primary, // Initial color of the button
+                            hoversColor: [
+                              context.colorScheme.tertiary
+                            ], // Color when the button is hovered
+                            duration: const Duration(
+                              milliseconds: 300,
+                            ), // Duration of the color transition
+                            child: Text(
+                              'Checkout my Github profile',
+                              style: context.textTheme.bodyLarge!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.narnoor,
                               ),
-                              child: Text(
-                                'Checkout my LinkedIn profile',
-                                style: context.textTheme.bodyLarge!.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              onPressed: () {
-                                js.context.callMethod(
-                                  'open',
-                                  [
-                                    'https://www.linkedin.com/in/marcosvonstremayr'
-                                  ],
-                                );
-                              },
+                            ),
+
+                            onPressed: () => js.context.callMethod(
+                              'open',
+                              ['https://github.com/marcosvons'],
                             ),
                           ),
-                          SizedBox(
-                            width: context.width * 0.3,
-                            height: context.height * 0.1,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                  context.colorScheme.onPrimary,
-                                ),
+                          AnimatedButton(
+                            initialColor: context.colorScheme
+                                .primary, // Initial color of the button
+                            hoversColor: [
+                              context.colorScheme.tertiary
+                            ], // Color when the button is hovered
+                            duration: const Duration(
+                              milliseconds: 300,
+                            ), // Duration of the color transition
+                            child: Text(
+                              'Checkout my linkedin profile',
+                              style: context.textTheme.bodyLarge!.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.narnoor,
                               ),
-                              child: Text(
-                                'Checkout my GitHub profile',
-                                style: context.textTheme.bodyLarge!.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              onPressed: () {
-                                js.context.callMethod(
-                                  'open',
-                                  ['https://github.com/marcosvons'],
-                                );
-                              },
                             ),
-                          ),
+
+                            onPressed: () => js.context.callMethod(
+                              'open',
+                              ['https://www.linkedin.com/in/marcosvonstremayr'],
+                            ), // Your button's content
+                          )
                         ],
                       )
                     else
@@ -121,7 +113,7 @@ class Homepage extends StatelessWidget {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                  context.colorScheme.onPrimary,
+                                  context.colorScheme.primary,
                                 ),
                               ),
                               child: Text(
@@ -148,7 +140,7 @@ class Homepage extends StatelessWidget {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                  context.colorScheme.onPrimary,
+                                  context.colorScheme.primary,
                                 ),
                               ),
                               child: Text(
