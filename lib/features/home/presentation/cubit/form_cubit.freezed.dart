@@ -19,9 +19,7 @@ mixin _$FormState {
   String get fullName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
-  String? get phoneNumber => throw _privateConstructorUsedError;
   String? get company => throw _privateConstructorUsedError;
-  String? get projectDetails => throw _privateConstructorUsedError;
   bool get isFormValid => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
@@ -42,9 +40,7 @@ abstract class $FormStateCopyWith<$Res> {
       {String fullName,
       String email,
       String message,
-      String? phoneNumber,
       String? company,
-      String? projectDetails,
       bool isFormValid,
       bool isSubmitting,
       bool isSuccess,
@@ -68,9 +64,7 @@ class _$FormStateCopyWithImpl<$Res, $Val extends FormState>
     Object? fullName = null,
     Object? email = null,
     Object? message = null,
-    Object? phoneNumber = freezed,
     Object? company = freezed,
-    Object? projectDetails = freezed,
     Object? isFormValid = null,
     Object? isSubmitting = null,
     Object? isSuccess = null,
@@ -90,17 +84,9 @@ class _$FormStateCopyWithImpl<$Res, $Val extends FormState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
       company: freezed == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
-              as String?,
-      projectDetails: freezed == projectDetails
-          ? _value.projectDetails
-          : projectDetails // ignore: cast_nullable_to_non_nullable
               as String?,
       isFormValid: null == isFormValid
           ? _value.isFormValid
@@ -137,9 +123,7 @@ abstract class _$$_FormStateCopyWith<$Res> implements $FormStateCopyWith<$Res> {
       {String fullName,
       String email,
       String message,
-      String? phoneNumber,
       String? company,
-      String? projectDetails,
       bool isFormValid,
       bool isSubmitting,
       bool isSuccess,
@@ -161,9 +145,7 @@ class __$$_FormStateCopyWithImpl<$Res>
     Object? fullName = null,
     Object? email = null,
     Object? message = null,
-    Object? phoneNumber = freezed,
     Object? company = freezed,
-    Object? projectDetails = freezed,
     Object? isFormValid = null,
     Object? isSubmitting = null,
     Object? isSuccess = null,
@@ -183,17 +165,9 @@ class __$$_FormStateCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
       company: freezed == company
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
-              as String?,
-      projectDetails: freezed == projectDetails
-          ? _value.projectDetails
-          : projectDetails // ignore: cast_nullable_to_non_nullable
               as String?,
       isFormValid: null == isFormValid
           ? _value.isFormValid
@@ -226,9 +200,7 @@ class _$_FormState implements _FormState {
       {this.fullName = '',
       this.email = '',
       this.message = '',
-      this.phoneNumber,
       this.company,
-      this.projectDetails,
       this.isFormValid = false,
       this.isSubmitting = false,
       this.isSuccess = false,
@@ -245,11 +217,7 @@ class _$_FormState implements _FormState {
   @JsonKey()
   final String message;
   @override
-  final String? phoneNumber;
-  @override
   final String? company;
-  @override
-  final String? projectDetails;
   @override
   @JsonKey()
   final bool isFormValid;
@@ -267,7 +235,7 @@ class _$_FormState implements _FormState {
 
   @override
   String toString() {
-    return 'FormState(fullName: $fullName, email: $email, message: $message, phoneNumber: $phoneNumber, company: $company, projectDetails: $projectDetails, isFormValid: $isFormValid, isSubmitting: $isSubmitting, isSuccess: $isSuccess, isFailure: $isFailure, errorMessage: $errorMessage)';
+    return 'FormState(fullName: $fullName, email: $email, message: $message, company: $company, isFormValid: $isFormValid, isSubmitting: $isSubmitting, isSuccess: $isSuccess, isFailure: $isFailure, errorMessage: $errorMessage)';
   }
 
   @override
@@ -279,11 +247,7 @@ class _$_FormState implements _FormState {
                 other.fullName == fullName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
             (identical(other.company, company) || other.company == company) &&
-            (identical(other.projectDetails, projectDetails) ||
-                other.projectDetails == projectDetails) &&
             (identical(other.isFormValid, isFormValid) ||
                 other.isFormValid == isFormValid) &&
             (identical(other.isSubmitting, isSubmitting) ||
@@ -297,19 +261,8 @@ class _$_FormState implements _FormState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      fullName,
-      email,
-      message,
-      phoneNumber,
-      company,
-      projectDetails,
-      isFormValid,
-      isSubmitting,
-      isSuccess,
-      isFailure,
-      errorMessage);
+  int get hashCode => Object.hash(runtimeType, fullName, email, message,
+      company, isFormValid, isSubmitting, isSuccess, isFailure, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -323,9 +276,7 @@ abstract class _FormState implements FormState {
       {final String fullName,
       final String email,
       final String message,
-      final String? phoneNumber,
       final String? company,
-      final String? projectDetails,
       final bool isFormValid,
       final bool isSubmitting,
       final bool isSuccess,
@@ -339,11 +290,7 @@ abstract class _FormState implements FormState {
   @override
   String get message;
   @override
-  String? get phoneNumber;
-  @override
   String? get company;
-  @override
-  String? get projectDetails;
   @override
   bool get isFormValid;
   @override

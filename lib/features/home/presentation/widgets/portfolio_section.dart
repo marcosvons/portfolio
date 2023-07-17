@@ -63,9 +63,11 @@ class PortfolioSection extends StatelessWidget {
                           backgroundColor: context.colorScheme.primary,
                         ),
                         onPressed: () => launchURL(
-                            Strings.githubProfile, context,
-                            errorMessage:
-                                'An error occurred while trying to open Github.'),
+                          Strings.githubProfile,
+                          context,
+                          errorMessage:
+                              'An error occurred while trying to open Github.',
+                        ),
                         child: Row(
                           children: [
                             Image.asset(
@@ -171,7 +173,7 @@ class PortfolioSection extends StatelessWidget {
                               Images.hearthstoneDrawer,
                               Images.hearthstoneCards,
                             ],
-                            video: Videos.hearthstoneCardFlipVideo,
+                            video: Strings.hearthstoneCardFlipVideo,
                             codeLink: Strings.hearthstoneCodeLink,
                           );
                         },

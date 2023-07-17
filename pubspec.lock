@@ -853,7 +853,7 @@ packages:
     source: hosted
     version: "3.1.0"
   video_player:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: video_player
       url: "https://pub.dartlang.org"
@@ -881,7 +881,7 @@ packages:
     source: hosted
     version: "6.1.0"
   video_player_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: video_player_web
       url: "https://pub.dartlang.org"
