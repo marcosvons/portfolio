@@ -21,18 +21,14 @@ class FormCubit extends Cubit<FormState> {
     String? fullName,
     String? email,
     String? message,
-    String? phoneNumber,
     String? company,
-    String? projectDetails,
   }) {
     emit(
       state.copyWith(
         fullName: fullName ?? state.fullName,
         email: email ?? state.email,
         message: message ?? state.message,
-        phoneNumber: phoneNumber ?? state.phoneNumber,
         company: company ?? state.company,
-        projectDetails: projectDetails ?? state.projectDetails,
       ),
     );
     final isEmailInvalid = emailValidator(state.email);
@@ -70,9 +66,7 @@ class FormCubit extends Cubit<FormState> {
           'from_email': state.email,
           'email': state.email,
           'message': state.message,
-          'phone_number': state.phoneNumber,
           'company_organization': state.company,
-          'project_details': state.projectDetails,
         }
       },
       options: Options(
@@ -89,9 +83,7 @@ class FormCubit extends Cubit<FormState> {
           fullName: '',
           email: '',
           message: '',
-          phoneNumber: '',
           company: '',
-          projectDetails: '',
           isFormValid: false,
         ),
       );

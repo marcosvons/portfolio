@@ -71,4 +71,6 @@ abstract class Strings {
       'https://drive.google.com/uc?id=1WEc3ExTnRHkTlM1CWIeYUmoUrDjFnIhd&export=download';
   static const String esCvUrl =
       'https://drive.google.com/uc?id=1fHZNX8kJMCOc--bP58YTNalImwELM-CW&export=download';
+  static const String hearthstoneCardFlipVideo =
+      'https://drive.google.com/uc?id=1BJ38twdBiRvWiPxBSvhAVTg6kxRADQ5L';
 }

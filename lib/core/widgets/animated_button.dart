@@ -8,6 +8,7 @@ class AnimatedButton extends StatefulWidget {
     required this.hoversColor,
     required this.child,
     required this.onPressed,
+    required this.constraints,
     this.duration = const Duration(milliseconds: 200),
   });
   final Color initialColor;
@@ -15,6 +16,7 @@ class AnimatedButton extends StatefulWidget {
   final Widget child;
   final VoidCallback onPressed;
   final Duration duration;
+  final BoxConstraints constraints;
 
   @override
   _AnimatedButtonState createState() => _AnimatedButtonState();
@@ -57,7 +59,9 @@ class _AnimatedButtonState extends State<AnimatedButton>
         animation: _animationController,
         builder: (context, child) {
           return Container(
-            width: context.width * 0.15,
+            width: widget.constraints.maxWidth > Resolutions.mobileMaxWidth
+                ? context.width * 0.15
+                : context.width * 0.45,
             height: context.height * 0.075,
             decoration: BoxDecoration(
               gradient: RadialGradient(
