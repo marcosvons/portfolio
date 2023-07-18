@@ -16,7 +16,9 @@ class HeroSection extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
-          height: context.height,
+          height: constraints.maxWidth > Resolutions.mobileMaxWidth
+              ? context.height
+              : context.height - kToolbarHeight,
           width: context.width,
           decoration: BoxDecoration(
             color: context.colorScheme.background,
@@ -61,10 +63,7 @@ class HeroSection extends StatelessWidget {
                                 ? TextAlign.start
                                 : TextAlign.center,
                             text: TextSpan(
-                              text: constraints.maxWidth >
-                                      Resolutions.mobileMaxWidth
-                                  ? 'Welcome!\n\n'
-                                  : 'Welcome!\n',
+                              text: 'Welcome!\n\n',
                               style: context.textTheme.displayLarge!.copyWith(
                                 color: context.colorScheme.onBackground,
                                 fontFamily: Fonts.caprasimo,

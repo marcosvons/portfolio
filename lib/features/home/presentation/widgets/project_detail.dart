@@ -71,42 +71,48 @@ class _ProjectDetailState extends State<ProjectDetail> {
             ),
             Row(
               children: [
-                GestureDetector(
-                  onTap: carouselController.previousPage,
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: context.colorScheme.secondary,
-                  ),
-                ),
-                const SizedBox(width: Dimens.large),
-                SizedBox(
-                  width: context.width * 0.3,
-                  child: CarouselSlider(
-                    carouselController: carouselController,
-                    options: CarouselOptions(
-                      height: context.height * 0.5,
-                      viewportFraction: 1,
-                      autoPlay: true,
-                      autoPlayInterval:
-                          Duration(seconds: widget.video != null ? 5 : 3),
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  GestureDetector(
+                    onTap: carouselController.previousPage,
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: context.colorScheme.secondary,
                     ),
-                    items: buildCarouselWidgets(),
                   ),
-                ),
-                const SizedBox(width: Dimens.large),
-                GestureDetector(
-                  onTap: carouselController.nextPage,
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    color: context.colorScheme.secondary,
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  const SizedBox(width: Dimens.large),
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  SizedBox(
+                    width: context.width * 0.3,
+                    child: CarouselSlider(
+                      carouselController: carouselController,
+                      options: CarouselOptions(
+                        height: context.height * 0.5,
+                        viewportFraction: 1,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(
+                          seconds: widget.video != null ? 5 : 3,
+                        ),
+                      ),
+                      items: buildCarouselWidgets(),
+                    ),
                   ),
-                ),
-                SizedBox(width: context.width * 0.05),
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  const SizedBox(width: Dimens.large),
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  GestureDetector(
+                    onTap: carouselController.nextPage,
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: context.colorScheme.secondary,
+                    ),
+                  ),
+                if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                  SizedBox(width: context.width * 0.05),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: Dimens.large),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: ListView(
                       children: [
                         Text(
                           widget.title,
@@ -116,74 +122,35 @@ class _ProjectDetailState extends State<ProjectDetail> {
                           ),
                         ),
                         SizedBox(height: context.height * 0.05),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Text(
-                              widget.description,
-                              style: context.textTheme.bodyText1!.copyWith(
-                                color: context.colorScheme.background,
-                                fontFamily: Fonts.narnoor,
-                              ),
-                            ),
+                        if (constraints.maxWidth < Resolutions.mobileMaxWidth)
+                          CarouselImages(
+                            carouselController: carouselController,
+                            buildCarouselWidgets: buildCarouselWidgets,
+                            video: widget.video,
+                          ),
+                        Text(
+                          widget.description,
+                          style: context.textTheme.bodyText1!.copyWith(
+                            color: context.colorScheme.background,
+                            fontFamily: Fonts.narnoor,
                           ),
                         ),
                         const SizedBox(height: Dimens.large),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            AnimatedButton(
-                              constraints: constraints,
-                              initialColor: context.colorScheme.background,
-                              hoversColor: [
-                                context.colorScheme.secondary,
-                                const Color.fromARGB(255, 6, 19, 167)
-                              ],
-                              duration: const Duration(milliseconds: 250),
-                              onPressed: () => launchURL(
-                                widget.codeLink,
-                                context,
-                                errorMessage:
-                                    'An error occurred while trying to open the projects code.',
-                              ),
-                              child: Text(
-                                'View Project',
-                                style: context.textTheme.bodyLarge!.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: Fonts.narnoor,
-                                ),
-                              ),
+                        if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: buttons(constraints),
+                          ),
+                        if (constraints.maxWidth < Resolutions.mobileMaxWidth)
+                          Center(
+                            child: Column(
+                              children: buttons(constraints),
                             ),
-                            if (widget.projectLink != null)
-                              AnimatedButton(
-                                constraints: constraints,
-                                initialColor: context.colorScheme.background,
-                                hoversColor: [
-                                  context.colorScheme.secondary,
-                                  const Color.fromARGB(255, 6, 19, 167)
-                                ],
-                                duration: const Duration(milliseconds: 250),
-                                onPressed: () => launchURL(
-                                  widget.projectLink!,
-                                  context,
-                                  errorMessage:
-                                      'An error occurred while trying to open the projects website.',
-                                ),
-                                child: Text(
-                                  'Visit Website',
-                                  style: context.textTheme.bodyLarge!.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: Fonts.narnoor,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
+                          ),
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ],
@@ -206,5 +173,109 @@ class _ProjectDetailState extends State<ProjectDetail> {
     }
 
     return widgets;
+  }
+
+  List<Widget> buttons(BoxConstraints constraints) => [
+        AnimatedButton(
+          constraints: constraints,
+          initialColor: context.colorScheme.background,
+          hoversColor: [
+            context.colorScheme.secondary,
+            const Color.fromARGB(255, 6, 19, 167)
+          ],
+          duration: const Duration(milliseconds: 250),
+          onPressed: () => launchURL(
+            widget.codeLink,
+            context,
+            errorMessage:
+                'An error occurred while trying to open the projects code.',
+          ),
+          child: Text(
+            'View Project',
+            style: context.textTheme.bodyLarge!.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontFamily: Fonts.narnoor,
+            ),
+          ),
+        ),
+        if (widget.projectLink != null) const SizedBox(height: Dimens.medium),
+        if (widget.projectLink != null)
+          AnimatedButton(
+            constraints: constraints,
+            initialColor: context.colorScheme.background,
+            hoversColor: [
+              context.colorScheme.secondary,
+              const Color.fromARGB(255, 6, 19, 167)
+            ],
+            duration: const Duration(milliseconds: 250),
+            onPressed: () => launchURL(
+              widget.projectLink!,
+              context,
+              errorMessage:
+                  'An error occurred while trying to open the projects website.',
+            ),
+            child: Text(
+              'Visit Website',
+              style: context.textTheme.bodyLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontFamily: Fonts.narnoor,
+              ),
+            ),
+          ),
+      ];
+}
+
+class CarouselImages extends StatelessWidget {
+  const CarouselImages({
+    super.key,
+    required this.carouselController,
+    required this.buildCarouselWidgets,
+    this.video,
+  });
+
+  final CarouselController carouselController;
+  final String? video;
+  final List<Widget> Function() buildCarouselWidgets;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: carouselController.previousPage,
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: context.colorScheme.secondary,
+          ),
+        ),
+        const SizedBox(width: Dimens.small),
+        SizedBox(
+          width: context.width * 0.5,
+          child: CarouselSlider(
+            carouselController: carouselController,
+            options: CarouselOptions(
+              height: context.height * 0.5,
+              viewportFraction: 1,
+              autoPlay: true,
+              autoPlayInterval: Duration(
+                seconds: video != null ? 5 : 3,
+              ),
+            ),
+            items: buildCarouselWidgets(),
+          ),
+        ),
+        const SizedBox(width: Dimens.small),
+        GestureDetector(
+          onTap: carouselController.nextPage,
+          child: Icon(
+            Icons.arrow_forward_ios,
+            color: context.colorScheme.secondary,
+          ),
+        ),
+      ],
+    );
   }
 }
