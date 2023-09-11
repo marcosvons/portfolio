@@ -30,10 +30,10 @@ class _AboutSectionState extends State<AboutSection> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
-          height: constraints.maxWidth > Resolutions.mobileMaxWidth
-              ? context.height
-              : context.height - kToolbarHeight,
-          width: context.width,
+          // height: constraints.maxWidth > Resolutions.mobileMaxWidth
+          //     ? context.height
+          //     : context.height - kToolbarHeight,
+          // width: context.width,
           color: context.colorScheme.background,
           child: Stack(
             children: [

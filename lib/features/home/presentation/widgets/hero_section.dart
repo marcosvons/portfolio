@@ -16,10 +16,10 @@ class HeroSection extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
-          height: constraints.maxWidth > Resolutions.mobileMaxWidth
-              ? context.height
-              : context.height - kToolbarHeight,
-          width: context.width,
+          // height: constraints.maxWidth > Resolutions.mobileMaxWidth
+          //     ? context.height
+          //     : context.height - kToolbarHeight,
+          // width: context.width,
           decoration: BoxDecoration(
             color: context.colorScheme.background,
           ),

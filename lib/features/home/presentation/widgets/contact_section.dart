@@ -71,8 +71,8 @@ class _ContactSectionState extends State<ContactSection> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Container(
-            height: context.height,
-            width: context.width,
+            // height: context.height,
+            // width: context.width,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
