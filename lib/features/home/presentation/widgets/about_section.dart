@@ -1,39 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/core.dart';
 
-class AboutSection extends StatefulWidget {
+class AboutSection extends StatelessWidget {
   const AboutSection({
     super.key,
   });
 
   @override
-  State<AboutSection> createState() => _AboutSectionState();
-}
-
-class _AboutSectionState extends State<AboutSection> {
-  late final ScrollController scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
+      key: const GlobalObjectKey('about'),
       builder: (context, constraints) {
-        return Container(
-          // height: constraints.maxWidth > Resolutions.mobileMaxWidth
-          //     ? context.height
-          //     : context.height - kToolbarHeight,
-          // width: context.width,
+        return ColoredBox(
           color: context.colorScheme.background,
           child: Stack(
             children: [
@@ -96,28 +74,48 @@ class _AboutSectionState extends State<AboutSection> {
                           if (constraints.maxWidth > Resolutions.mobileMaxWidth)
                             LinkedinButton(
                               constraints: constraints,
-                            )
+                            ),
                         ],
                       ),
                     ),
                     Center(
                       child: SizedBox(
                         width: constraints.maxWidth > Resolutions.mobileMaxWidth
-                            ? context.width * 0.8
-                            : context.width,
-                        height:
-                            constraints.maxWidth > Resolutions.mobileMaxWidth
-                                ? context.height * 0.75
-                                : context.height * 0.6,
-                        child: AboutPageView(
-                          constraints: constraints,
-                          scrollController: scrollController,
+                            ? context.width * 0.6
+                            : context.width * 0.85,
+                        child: Text(
+                          Strings.aboutText,
+                          style: context.textTheme.displaySmall!.copyWith(
+                            color: context.colorScheme.onBackground,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: Fonts.narnoor,
+                            fontSize: 18,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
+                      // child: SizedBox(
+                      //   width: constraints.maxWidth > Resolutions.mobileMaxWidth
+                      //       ? context.width * 0.8
+                      //       : context.width,
+                      //   height:
+                      //       constraints.maxWidth > Resolutions.mobileMaxWidth
+                      //           ? context.height * 0.75
+                      //           : context.height * 0.6,
+                      //   child: AboutPageView(
+                      //     constraints: constraints,
+                      //     scrollController: scrollController,
+                      //   ),
+                      // ),
                     ),
                     if (constraints.maxWidth < Resolutions.mobileMaxWidth)
-                      LinkedinButton(
-                        constraints: constraints,
+                      Column(
+                        children: [
+                          const SizedBox(height: Dimens.xxLarge),
+                          LinkedinButton(
+                            constraints: constraints,
+                          ),
+                        ],
                       ),
                   ],
                 ),
@@ -300,7 +298,7 @@ class ConclusionPage extends StatelessWidget {
                   ? Dimens.large
                   : Dimens.medium,
             ),
-          )
+          ),
         ],
       ),
     );
@@ -364,7 +362,7 @@ class ExperiencePage extends StatelessWidget {
                     fontFamily: Fonts.narnoor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(height: Dimens.large),
@@ -408,7 +406,7 @@ class ExperiencePage extends StatelessWidget {
                     fontFamily: Fonts.narnoor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(height: Dimens.large),
@@ -452,7 +450,7 @@ class ExperiencePage extends StatelessWidget {
                     fontFamily: Fonts.narnoor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],
@@ -535,7 +533,7 @@ class EducationPage extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
         ],
       ),
     );

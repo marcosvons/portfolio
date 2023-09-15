@@ -9,6 +9,7 @@ class PortfolioSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
+      key: const GlobalObjectKey('portfolio'),
       builder: (context, constraints) {
         return Container(
           height: constraints.maxWidth > Resolutions.mobileMaxWidth
@@ -39,6 +40,7 @@ class PortfolioSection extends StatelessWidget {
                   vertical: Dimens.xxLarge,
                 ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -64,12 +66,17 @@ class PortfolioSection extends StatelessWidget {
                         if (constraints.maxWidth > Resolutions.mobileMaxWidth)
                           GithubButton(
                             constraints: constraints,
-                          )
+                          ),
                       ],
                     ),
-                    SizedBox(height: context.height * 0.1),
+                    SizedBox(
+                      height: constraints.maxWidth > Resolutions.mobileMaxWidth
+                          ? context.height * 0.1
+                          : context.height * 0.05,
+                    ),
                     Expanded(
                       child: GridView.count(
+                        shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         crossAxisCount:
                             constraints.maxWidth > Resolutions.mobileMaxWidth
@@ -78,7 +85,7 @@ class PortfolioSection extends StatelessWidget {
                         childAspectRatio: constraints.maxWidth >
                                 Resolutions.mobileMaxWidth
                             ? (context.width / 0.75) / (context.height / 1.25)
-                            : 3 / 1,
+                            : 4 / 1,
                         mainAxisSpacing: context.width * 0.05,
                         crossAxisSpacing: context.width * 0.05,
                         children: [
@@ -101,7 +108,7 @@ class PortfolioSection extends StatelessWidget {
                                 constraints: constraints,
                               );
                             },
-                            child: Container(
+                            child: DecoratedBox(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(Dimens.small),
@@ -138,7 +145,7 @@ class PortfolioSection extends StatelessWidget {
                                 constraints: constraints,
                               );
                             },
-                            child: Container(
+                            child: DecoratedBox(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(Dimens.small),
@@ -169,7 +176,7 @@ class PortfolioSection extends StatelessWidget {
                                 constraints: constraints,
                               );
                             },
-                            child: Container(
+                            child: DecoratedBox(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(Dimens.small),
@@ -200,7 +207,7 @@ class PortfolioSection extends StatelessWidget {
                                 constraints: constraints,
                               );
                             },
-                            child: Container(
+                            child: DecoratedBox(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(Dimens.small),
@@ -219,9 +226,16 @@ class PortfolioSection extends StatelessWidget {
                       ),
                     ),
                     if (constraints.maxWidth < Resolutions.mobileMaxWidth)
-                      GithubButton(
-                        constraints: constraints,
-                      )
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: Dimens.xxLarge,
+                          ),
+                          GithubButton(
+                            constraints: constraints,
+                          ),
+                        ],
+                      ),
                   ],
                 ),
               ),

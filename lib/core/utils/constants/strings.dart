@@ -73,4 +73,10 @@ abstract class Strings {
       'https://drive.google.com/uc?id=1fHZNX8kJMCOc--bP58YTNalImwELM-CW&export=download';
   static const String hearthstoneCardFlipVideo =
       'https://drive.google.com/uc?id=1BJ38twdBiRvWiPxBSvhAVTg6kxRADQ5L';
+  static const String aboutText = 'Hey there,\n\n'
+      "I'm Marcos, a Buenos Aires-based Flutter developer 🇦🇷 with a passion for football ⚽ and all things tech 📱.\n\n"
+      "When I'm not coding, you'll find me on the football pitch, chasing a ball and maybe even scoring a goal or two. Just like in the world of code, teamwork and strategy are key in the game I love.\n\n"
+      "Speaking of code, I'm genuinely passionate about crafting user-friendly apps that feel delightful to use. It's been a journey of learning, debugging, and those 'aha' moments.\n\n"
+      "I'd love to collaborate with you on your app project. Let's chat, share ideas, and make something great together. No sales pitch, just a genuine conversation about your goals.\n\n"
+      'Looking forward to connecting!';
 }

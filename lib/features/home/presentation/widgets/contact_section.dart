@@ -69,10 +69,11 @@ class _ContactSectionState extends State<ContactSection> {
         }
       },
       child: LayoutBuilder(
+        key: const GlobalObjectKey('contact'),
         builder: (context, constraints) {
           return Container(
-            // height: context.height,
-            // width: context.width,
+            height: context.height,
+            width: context.width,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -345,7 +346,7 @@ class _ContactSectionState extends State<ContactSection> {
                                     }
                                   },
                                 ),
-                              )
+                              ),
                             ],
                           );
                         },
@@ -366,7 +367,7 @@ class _ContactSectionState extends State<ContactSection> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );

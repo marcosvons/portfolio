@@ -5,27 +5,8 @@ import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/core.dart';
 import 'package:portfolio/features/features.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  late final ScrollController _scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +15,10 @@ class _HomeState extends State<Home> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Scaffold(
+            backgroundColor: context.colorScheme.background,
             appBar: constraints.maxWidth < Resolutions.mobileMaxWidth
                 ? AppBar(
+                    backgroundColor: context.colorScheme.background,
                     elevation: 0,
                     flexibleSpace: Container(
                       decoration: BoxDecoration(
@@ -50,21 +33,20 @@ class _HomeState extends State<Home> {
                   )
                 : null,
             endDrawer: constraints.maxWidth < Resolutions.mobileMaxWidth
-                ? PortfolioDrawer(scrollController: _scrollController)
+                ? const PortfolioDrawer()
                 : null,
-            body: ListView(
+            body: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
-              controller: _scrollController,
-              children: [
-                HeroSection(
-                  scrollController: _scrollController,
-                ),
-                SizedBox(height: context.height * 0.1),
-                const AboutSection(),
-                SizedBox(height: context.height * 0.2),
-                const PortfolioSection(),
-                const ContactSection(),
-              ],
+              child: Column(
+                children: [
+                  const HeroSection(),
+                  SizedBox(height: context.height * 0.1),
+                  const AboutSection(),
+                  SizedBox(height: context.height * 0.2),
+                  const PortfolioSection(),
+                  const ContactSection(),
+                ],
+              ),
             ),
           );
         },
@@ -76,10 +58,7 @@ class _HomeState extends State<Home> {
 class PortfolioDrawer extends StatelessWidget {
   const PortfolioDrawer({
     super.key,
-    required ScrollController scrollController,
-  }) : _scrollController = scrollController;
-
-  final ScrollController _scrollController;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -105,11 +84,6 @@ class PortfolioDrawer extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pop();
-                  _scrollController.animateTo(
-                    0,
-                    duration: const Duration(milliseconds: 1000),
-                    curve: Curves.easeIn,
-                  );
                 },
                 child: SizedBox(
                   width: context.width * 0.2,
@@ -119,12 +93,15 @@ class PortfolioDrawer extends StatelessWidget {
               SizedBox(height: context.height * 0.1),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
-                  _scrollController.animateTo(
-                    context.height * 1 + kToolbarHeight,
-                    duration: const Duration(milliseconds: 1000),
-                    curve: Curves.easeIn,
+                  Scrollable.ensureVisible(
+                    const GlobalObjectKey('about').currentContext!,
+                    duration: const Duration(
+                      seconds: 1,
+                    ),
+                    alignment: .5,
+                    curve: Curves.easeInOutCubic,
                   );
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   'About',
@@ -137,13 +114,15 @@ class PortfolioDrawer extends StatelessWidget {
               SizedBox(height: context.height * 0.075),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
-
-                  _scrollController.animateTo(
-                    context.height * 2.1 + kToolbarHeight,
-                    duration: const Duration(milliseconds: 1000),
-                    curve: Curves.easeIn,
+                  Scrollable.ensureVisible(
+                    const GlobalObjectKey('portfolio').currentContext!,
+                    duration: const Duration(
+                      seconds: 1,
+                    ),
+                    alignment: .5,
+                    curve: Curves.easeInOutCubic,
                   );
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   'Portfolio',
@@ -156,13 +135,15 @@ class PortfolioDrawer extends StatelessWidget {
               SizedBox(height: context.height * 0.075),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
-
-                  _scrollController.animateTo(
-                    context.height * 3.3,
-                    duration: const Duration(milliseconds: 1000),
-                    curve: Curves.easeIn,
+                  Scrollable.ensureVisible(
+                    const GlobalObjectKey('contact').currentContext!,
+                    duration: const Duration(
+                      seconds: 1,
+                    ),
+                    alignment: .5,
+                    curve: Curves.easeInOutCubic,
                   );
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   'Contact',
