@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/core.dart';
 import 'package:portfolio/features/home/home.dart';
 
 class HoverAndRedirectContainer extends StatefulWidget {
@@ -60,6 +61,7 @@ void buildPopupContainer(
   required String description,
   required List<String> images,
   required String codeLink,
+  required BoxConstraints constraints,
   String? projectLink,
   String? video,
 }) {
@@ -68,8 +70,12 @@ void buildPopupContainer(
     builder: (BuildContext context) {
       return AlertDialog(
         content: Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.8,
+          width: constraints.maxWidth > Resolutions.mobileMaxWidth
+              ? MediaQuery.of(context).size.width * 0.8
+              : MediaQuery.of(context).size.width,
+          height: constraints.maxWidth > Resolutions.mobileMaxWidth
+              ? MediaQuery.of(context).size.height * 0.8
+              : MediaQuery.of(context).size.height * 0.95,
           color: Colors.white,
           child: ProjectDetail(
             title: title,

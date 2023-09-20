@@ -1,23 +1,23 @@
 {
-    "name": "Portfolio",
+    "name": "Marcos von Stremayr",
     "short_name": "Portfolio",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A Very Good Project created by Very Good CLI.",
+    "background_color": "#333333",
+    "theme_color": "#333333",
+    "description": "Marcos von Stremayr - Portfolio",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "icons/profile.webp",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/webp"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "icons/profile.webp",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/webp"
         }
     ]
 }
