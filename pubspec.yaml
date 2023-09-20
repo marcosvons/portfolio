@@ -10,7 +10,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   bloc: ^8.1.1
   carousel_slider: ^4.2.1
-  chewie: ^1.5.0
+  chewie: ^1.7.1
   firebase_core: ^2.4.0
   flutter:
     sdk: flutter
