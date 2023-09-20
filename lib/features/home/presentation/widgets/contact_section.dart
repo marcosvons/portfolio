@@ -69,6 +69,7 @@ class _ContactSectionState extends State<ContactSection> {
         }
       },
       child: LayoutBuilder(
+        key: const GlobalObjectKey('contact'),
         builder: (context, constraints) {
           return Container(
             height: context.height,
@@ -345,7 +346,7 @@ class _ContactSectionState extends State<ContactSection> {
                                     }
                                   },
                                 ),
-                              )
+                              ),
                             ],
                           );
                         },
@@ -366,7 +367,7 @@ class _ContactSectionState extends State<ContactSection> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );

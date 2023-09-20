@@ -55,7 +55,7 @@ class FormCubit extends Cubit<FormState> {
   FutureOr<void> submitForm() async {
     emit(state.copyWith(isSubmitting: true));
     await _dio
-        .post(
+        .post<dynamic>(
       'https://api.emailjs.com/api/v1.0/email/send',
       data: {
         'service_id': _serviceId,

@@ -6,20 +6,14 @@ import 'package:portfolio/core/core.dart';
 class HeroSection extends StatelessWidget {
   const HeroSection({
     super.key,
-    required this.scrollController,
   });
-
-  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
+      key: const GlobalObjectKey('hero'),
       builder: (context, constraints) {
-        return Container(
-          height: constraints.maxWidth > Resolutions.mobileMaxWidth
-              ? context.height
-              : context.height - kToolbarHeight,
-          width: context.width,
+        return DecoratedBox(
           decoration: BoxDecoration(
             color: context.colorScheme.background,
           ),
@@ -41,7 +35,7 @@ class HeroSection extends StatelessWidget {
                 ),
               ),
               if (constraints.maxWidth > Resolutions.mobileMaxWidth)
-                NavigationBar(scrollController: scrollController),
+                const NavigationBar(),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -143,7 +137,10 @@ class HeroSection extends StatelessWidget {
                                     Resolutions.mobileMaxWidth
                                 ? context.width * 0.4
                                 : context.width * 0.85,
-                            height: context.height * 0.225,
+                            height: constraints.maxWidth >
+                                    Resolutions.mobileMaxWidth
+                                ? context.height * 0.225
+                                : context.height * 0.275,
                             child: AnimatedTextKit(
                               totalRepeatCount: 1,
                               animatedTexts: [
@@ -225,16 +222,19 @@ class HeroSection extends StatelessWidget {
                                       fontFamily: Fonts.narnoor,
                                     ),
                                   ),
-                                  onPressed: () => scrollController.animateTo(
-                                    context.height * 3.3,
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    curve: Curves.easeIn,
+                                  onPressed: () => Scrollable.ensureVisible(
+                                    const GlobalObjectKey('contact')
+                                        .currentContext!,
+                                    duration: const Duration(
+                                      seconds: 1,
+                                    ),
+                                    alignment: .5,
+                                    curve: Curves.easeInOutCubic,
                                   ),
                                 ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -314,10 +314,7 @@ class PhotoAvatar extends StatelessWidget {
 class NavigationBar extends StatelessWidget {
   const NavigationBar({
     super.key,
-    required this.scrollController,
   });
-
-  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -349,10 +346,13 @@ class NavigationBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () => scrollController.animateTo(
-                        context.height * 1.1,
-                        duration: const Duration(milliseconds: 1000),
-                        curve: Curves.easeIn,
+                      onTap: () => Scrollable.ensureVisible(
+                        const GlobalObjectKey('about').currentContext!,
+                        duration: const Duration(
+                          seconds: 1,
+                        ),
+                        alignment: .5,
+                        curve: Curves.easeInOutCubic,
                       ),
                       child: Text(
                         'About',
@@ -362,10 +362,13 @@ class NavigationBar extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => scrollController.animateTo(
-                        context.height * 2.25,
-                        duration: const Duration(milliseconds: 1000),
-                        curve: Curves.easeIn,
+                      onTap: () => Scrollable.ensureVisible(
+                        const GlobalObjectKey('portfolio').currentContext!,
+                        duration: const Duration(
+                          seconds: 1,
+                        ),
+                        alignment: .5,
+                        curve: Curves.easeInOutCubic,
                       ),
                       child: Text(
                         'Portfolio',
@@ -375,10 +378,13 @@ class NavigationBar extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => scrollController.animateTo(
-                        context.height * 3.3,
-                        duration: const Duration(milliseconds: 1000),
-                        curve: Curves.easeIn,
+                      onTap: () => Scrollable.ensureVisible(
+                        const GlobalObjectKey('contact').currentContext!,
+                        duration: const Duration(
+                          seconds: 1,
+                        ),
+                        alignment: .5,
+                        curve: Curves.easeInOutCubic,
                       ),
                       child: Text(
                         'Contact',
