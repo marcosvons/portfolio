@@ -12,9 +12,6 @@ class PortfolioSection extends StatelessWidget {
       key: const GlobalObjectKey('portfolio'),
       builder: (context, constraints) {
         return Container(
-          height: constraints.maxWidth > Resolutions.mobileMaxWidth
-              ? context.height
-              : context.height - kToolbarHeight,
           width: context.width,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -74,156 +71,340 @@ class PortfolioSection extends StatelessWidget {
                           ? context.height * 0.1
                           : context.height * 0.05,
                     ),
-                    Expanded(
-                      child: GridView.count(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount:
-                            constraints.maxWidth > Resolutions.mobileMaxWidth
-                                ? 2
-                                : 1,
-                        childAspectRatio: constraints.maxWidth >
-                                Resolutions.mobileMaxWidth
-                            ? (context.width / 0.75) / (context.height / 1.25)
-                            : 4 / 1,
-                        mainAxisSpacing: context.width * 0.05,
-                        crossAxisSpacing: context.width * 0.05,
-                        children: [
-                          HoverAndRedirectContainer(
-                            onPressed: () {
-                              buildPopupContainer(
-                                context,
-                                title: Strings.maastersTitle,
-                                description: Strings.maastersDescription,
-                                images: [
-                                  Images.maastersLogin,
-                                  Images.maastersOnboarding,
-                                  Images.maastersOnboarding2,
-                                  Images.maastersOnboarding3,
-                                  Images.maastersOnboarding4,
-                                  Images.maastersHome,
-                                ],
-                                codeLink: Strings.maastersCodeLink,
-                                projectLink: Strings.maastersLink,
-                                constraints: constraints,
-                              );
-                            },
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(Dimens.small),
-                                ),
-                                color: context.colorScheme.surface,
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const ScrollPhysics(),
+                      crossAxisCount:
+                          constraints.maxWidth > Resolutions.mobileMaxWidth
+                              ? 2
+                              : 1,
+                      childAspectRatio:
+                          constraints.maxWidth > Resolutions.mobileMaxWidth
+                              ? (context.width / 0.75) / (context.height / 1.25)
+                              : 4 / 1,
+                      mainAxisSpacing: context.width * 0.05,
+                      crossAxisSpacing: context.width * 0.05,
+                      children: [
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.urbetrackLiteTitle,
+                              description: Strings.urbetrackLiteDescription,
+                              images: [
+                                Images.lite1,
+                                Images.lite2,
+                                Images.lite3,
+                                Images.lite4,
+                                Images.lite5,
+                              ],
+                              appStoreLink: Strings.urbetrackLiteAppStoreLink,
+                              playStoreLink: Strings.urbetrackLitePlayStoreLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.all(
-                                  constraints.maxWidth >
-                                          Resolutions.mobileMaxWidth
-                                      ? Dimens.xSmall
-                                      : Dimens.xxLarge,
-                                ),
-                                child: Image.asset(
-                                  Images.maasters,
-                                ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.urbeLiteLogo,
                               ),
                             ),
                           ),
-                          HoverAndRedirectContainer(
-                            onPressed: () {
-                              buildPopupContainer(
-                                context,
-                                title: Strings.rickAndMortyTitle,
-                                description: Strings.rickAndMortyDescription,
-                                images: [
-                                  Images.rickAndMortyLogin,
-                                  Images.rickAndMortyDrawer,
-                                  Images.rickAndMortyHome,
-                                  Images.rickAndMortyCharacter,
-                                  Images.rickAndMortyFavorites,
-                                ],
-                                codeLink: Strings.rickAndMortyCodeLink,
-                                constraints: constraints,
-                              );
-                            },
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(Dimens.small),
-                                ),
-                                color: context.colorScheme.surface,
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.urbeFleetTitle,
+                              description: Strings.urbeFleetDescription,
+                              images: [
+                                Images.fleet1,
+                                Images.fleet2,
+                                Images.fleet3,
+                                Images.fleet4,
+                              ],
+                              appStoreLink: Strings.urbeFleetAppStoreLink,
+                              playStoreLink: Strings.urbeFleetPlayStoreLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(Dimens.xSmall),
-                                child: Image.asset(
-                                  Images.rickAndMortyLogo,
-                                ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.urbeFleetLogo,
                               ),
                             ),
                           ),
-                          HoverAndRedirectContainer(
-                            onPressed: () {
-                              buildPopupContainer(
-                                context,
-                                title: Strings.hearthstoneTitle,
-                                description: Strings.hearthstoneDescription,
-                                images: [
-                                  Images.hearthstoneHome,
-                                  Images.hearthstoneDrawer,
-                                  Images.hearthstoneCards,
-                                ],
-                                video: Strings.hearthstoneCardFlipVideo,
-                                codeLink: Strings.hearthstoneCodeLink,
-                                constraints: constraints,
-                              );
-                            },
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(Dimens.small),
-                                ),
-                                color: context.colorScheme.surface,
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.driverTitle,
+                              description: Strings.driverDescription,
+                              images: [
+                                Images.driver1,
+                                Images.driver2,
+                                Images.driver3,
+                                Images.driver4,
+                                Images.driver5,
+                              ],
+                              appStoreLink: Strings.driverAppStoreLink,
+                              playStoreLink: Strings.driverPlayStoreLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(Dimens.xSmall),
-                                child: Image.asset(
-                                  Images.hearthstoneLogo,
-                                ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.driverLogo,
                               ),
                             ),
                           ),
-                          HoverAndRedirectContainer(
-                            onPressed: () {
-                              buildPopupContainer(
-                                context,
-                                title: Strings.starWarsTitle,
-                                description: Strings.starWarsDescription,
-                                images: [
-                                  Images.starWarsHome,
-                                  Images.starWarsCharacters,
-                                  Images.starWarsCharacterDetail,
-                                  Images.starWarsCharacterSighting,
-                                ],
-                                codeLink: Strings.starWarsCodeLink,
-                                constraints: constraints,
-                              );
-                            },
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(Dimens.small),
-                                ),
-                                color: context.colorScheme.surface,
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.checkTitle,
+                              description: Strings.checkDescription,
+                              images: [
+                                Images.check1,
+                                Images.check2,
+                                Images.check3,
+                                Images.check4,
+                                Images.check5,
+                              ],
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(Dimens.xSmall),
-                                child: Image.asset(
-                                  Images.starWarsLogo,
-                                ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.checkLogo,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.passTitle,
+                              description: Strings.passDescription,
+                              images: [
+                                Images.pass1,
+                                Images.pass2,
+                                Images.pass3,
+                                Images.pass4,
+                                Images.pass5,
+                              ],
+                              playStoreLink: Strings.passPlayStoreLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
+                              ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.passLogo,
+                              ),
+                            ),
+                          ),
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.maastersTitle,
+                              description: Strings.maastersDescription,
+                              images: [
+                                Images.maastersLogin,
+                                Images.maastersOnboarding,
+                                Images.maastersOnboarding2,
+                                Images.maastersOnboarding3,
+                                Images.maastersOnboarding4,
+                                Images.maastersHome,
+                              ],
+                              codeLink: Strings.maastersCodeLink,
+                              projectLink: Strings.maastersLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
+                              ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? Dimens.xSmall
+                                    : Dimens.xxLarge,
+                              ),
+                              child: Image.asset(
+                                Images.maasters,
+                              ),
+                            ),
+                          ),
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.rickAndMortyTitle,
+                              description: Strings.rickAndMortyDescription,
+                              images: [
+                                Images.rickAndMortyLogin,
+                                Images.rickAndMortyDrawer,
+                                Images.rickAndMortyHome,
+                                Images.rickAndMortyCharacter,
+                                Images.rickAndMortyFavorites,
+                              ],
+                              codeLink: Strings.rickAndMortyCodeLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
+                              ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(Dimens.xSmall),
+                              child: Image.asset(
+                                Images.rickAndMortyLogo,
+                              ),
+                            ),
+                          ),
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.hearthstoneTitle,
+                              description: Strings.hearthstoneDescription,
+                              images: [
+                                Images.hearthstoneHome,
+                                Images.hearthstoneDrawer,
+                                Images.hearthstoneCards,
+                              ],
+                              video: Strings.hearthstoneCardFlipVideo,
+                              codeLink: Strings.hearthstoneCodeLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
+                              ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(Dimens.xSmall),
+                              child: Image.asset(
+                                Images.hearthstoneLogo,
+                              ),
+                            ),
+                          ),
+                        ),
+                        HoverAndRedirectContainer(
+                          onPressed: () {
+                            buildPopupContainer(
+                              context,
+                              title: Strings.starWarsTitle,
+                              description: Strings.starWarsDescription,
+                              images: [
+                                Images.starWarsHome,
+                                Images.starWarsCharacters,
+                                Images.starWarsCharacterDetail,
+                                Images.starWarsCharacterSighting,
+                              ],
+                              codeLink: Strings.starWarsCodeLink,
+                              constraints: constraints,
+                            );
+                          },
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimens.small),
+                              ),
+                              color: context.colorScheme.surface,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(Dimens.xSmall),
+                              child: Image.asset(
+                                Images.starWarsLogo,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     if (constraints.maxWidth < Resolutions.mobileMaxWidth)
                       Column(

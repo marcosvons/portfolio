@@ -81,13 +81,9 @@ class _AnimatedButtonState extends State<AnimatedButton>
               ),
               borderRadius: BorderRadius.circular(Dimens.xSmall),
             ),
-            child: ElevatedButton(
-              onPressed: widget.onPressed,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-              ),
-              child: widget.child,
+            child: GestureDetector(
+              onTap: widget.onPressed,
+              child: Center(child: widget.child),
             ),
           );
         },

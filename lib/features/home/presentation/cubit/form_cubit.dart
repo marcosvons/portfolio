@@ -67,7 +67,7 @@ class FormCubit extends Cubit<FormState> {
           'email': state.email,
           'message': state.message,
           'company_organization': state.company,
-        }
+        },
       },
       options: Options(
         headers: {

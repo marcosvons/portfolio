@@ -10,16 +10,20 @@ class ProjectDetail extends StatefulWidget {
     required this.title,
     required this.description,
     required this.images,
-    required this.codeLink,
+    this.codeLink,
     this.projectLink,
+    this.playStoreLink,
+    this.appStoreLink,
     this.video,
   });
 
   final String title;
   final String description;
   final List<String> images;
-  final String codeLink;
+  final String? codeLink;
   final String? projectLink;
+  final String? appStoreLink;
+  final String? playStoreLink;
   final String? video;
 
   @override
@@ -135,7 +139,7 @@ class _ProjectDetailState extends State<ProjectDetail> {
                             fontFamily: Fonts.narnoor,
                           ),
                         ),
-                        const SizedBox(height: Dimens.large),
+                        const SizedBox(height: Dimens.xxLarge),
                         if (constraints.maxWidth > Resolutions.mobileMaxWidth)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -176,29 +180,79 @@ class _ProjectDetailState extends State<ProjectDetail> {
   }
 
   List<Widget> buttons(BoxConstraints constraints) => [
-        AnimatedButton(
-          constraints: constraints,
-          initialColor: context.colorScheme.background,
-          hoversColor: [
-            context.colorScheme.secondary,
-            const Color.fromARGB(255, 6, 19, 167)
-          ],
-          duration: const Duration(milliseconds: 250),
-          onPressed: () => launchURL(
-            widget.codeLink,
-            context,
-            errorMessage:
-                'An error occurred while trying to open the projects code.',
-          ),
-          child: Text(
-            'View Project',
-            style: context.textTheme.bodyLarge!.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontFamily: Fonts.narnoor,
+        if (widget.appStoreLink != null)
+          AnimatedButton(
+            constraints: constraints,
+            initialColor: context.colorScheme.background,
+            hoversColor: [
+              context.colorScheme.secondary,
+              const Color.fromARGB(255, 6, 19, 167),
+            ],
+            duration: const Duration(milliseconds: 250),
+            onPressed: () => launchURL(
+              widget.appStoreLink!,
+              context,
+              errorMessage:
+                  'An error occurred while trying to open the App Store.',
+            ),
+            child: Text(
+              'Go to App Store',
+              style: context.textTheme.bodyLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontFamily: Fonts.narnoor,
+              ),
             ),
           ),
-        ),
+        if (widget.appStoreLink != null) const SizedBox(height: Dimens.medium),
+        if (widget.playStoreLink != null)
+          AnimatedButton(
+            constraints: constraints,
+            initialColor: context.colorScheme.background,
+            hoversColor: [
+              context.colorScheme.secondary,
+              const Color.fromARGB(255, 6, 19, 167),
+            ],
+            duration: const Duration(milliseconds: 250),
+            onPressed: () => launchURL(
+              widget.playStoreLink!,
+              context,
+              errorMessage:
+                  'An error occurred while trying to open Google Play.',
+            ),
+            child: Text(
+              'Go to Google Play',
+              style: context.textTheme.bodyLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontFamily: Fonts.narnoor,
+              ),
+            ),
+          ),
+        if (widget.codeLink != null)
+          AnimatedButton(
+            constraints: constraints,
+            initialColor: context.colorScheme.background,
+            hoversColor: [
+              context.colorScheme.secondary,
+              const Color.fromARGB(255, 6, 19, 167),
+            ],
+            duration: const Duration(milliseconds: 250),
+            onPressed: () => launchURL(
+              widget.codeLink!,
+              context,
+              errorMessage:
+                  'An error occurred while trying to open the projects code.',
+            ),
+            child: Text(
+              'View Code',
+              style: context.textTheme.bodyLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontFamily: Fonts.narnoor,
+              ),
+            ),
+          ),
         if (widget.projectLink != null) const SizedBox(height: Dimens.medium),
         if (widget.projectLink != null)
           AnimatedButton(

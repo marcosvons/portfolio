@@ -68,9 +68,9 @@ abstract class Strings {
   static const String linkedinProfile =
       'https://www.linkedin.com/in/marcosvonstremayr/';
   static const String enCvUrl =
-      'https://drive.google.com/uc?id=1WEc3ExTnRHkTlM1CWIeYUmoUrDjFnIhd&export=download';
+      'https://drive.google.com/file/d/1xaOvZc0RlN-sfAiAGTNjPCOn1biJUOGB/view?usp=drive_link&export=download';
   static const String esCvUrl =
-      'https://drive.google.com/uc?id=1fHZNX8kJMCOc--bP58YTNalImwELM-CW&export=download';
+      'https://drive.google.com/file/d/1nnu_iEX57USQNm7W22um2TjLBMEmot8T/view?usp=drive_link&export=download';
   static const String hearthstoneCardFlipVideo =
       'https://drive.google.com/uc?id=1BJ38twdBiRvWiPxBSvhAVTg6kxRADQ5L';
   static const String aboutText = 'Hey there,\n\n'
@@ -79,4 +79,42 @@ abstract class Strings {
       "Speaking of code, I'm genuinely passionate about crafting user-friendly apps that feel delightful to use. It's been a journey of learning, debugging, and those 'aha' moments.\n\n"
       "I'd love to collaborate with you on your app project. Let's chat, share ideas, and make something great together. No sales pitch, just a genuine conversation about your goals.\n\n"
       'Looking forward to connecting!';
+
+  static const String urbetrackLiteTitle = 'Urbetrack Lite';
+  static const String urbetrackLiteDescription =
+      'I collaborated on the development of Urbetrack Lite, a cutting-edge mobile application that revolutionized asset management. This robust app delivers a streamlined and efficient approach to tracking fleet locations and maintenance in real-time. Leveraging the latest technology, it empowers users to assess compliance metrics, monitor driving behavior, and maintain comprehensive driver documentation.\n\n'
+      'Together with a fellow developer, I played a pivotal role in revamping the app’s architecture, aligning it with industry best practices advocated by Very Good Ventures. Notably, we introduced game-changing features like the “Checklist” module, meticulously implementing the BLoC pattern and robust error handling using Either.\n\n'
+      'Incorporating a strategic blend of popular packages and services, including Google Maps, Permission Handler, Firebase (Analytics, Crashlytics, Messaging), and Hive, we elevated Urbetrack Lite’s functionality and performance to unprecedented levels.';
+
+  static const String urbeFleetTitle = 'UrbeFleet';
+  static const String urbeFleetDescription =
+      'I developed UrbeFleet, a specialized mobile app designed to streamline maintenance tasks for drivers. UrbeFleet simplifies checklists, vehicle services, and document updates, enhancing operational efficiency. By leveraging cutting-edge technologies and industry best practices, I ensured UrbeFleet exceeds driver expectations.\n\n'
+      ' Through iterative development and stakeholder collaboration, UrbeFleet emerged as a robust and intuitive solution. Its user-centric design empowers drivers to manage their daily routines effectively, contributing to the advancement of fleet management practices.';
+  static const String driverTitle = 'Hubbing Latam Driver';
+  static const String driverDescription =
+      'I developed the Driver app, a comprehensive solution tailored specifically for truck drivers. With a focus on safety and efficiency, Driver offers intuitive features including real-time trip visualization, offline support, and emergency SOS alerts. By leveraging these functionalities, Driver ensures that truck drivers can navigate their journeys with confidence, even in remote areas or areas with poor connectivity.\n\n'
+      'Driver\'s user-friendly interface and robust features make it an indispensable tool for truck drivers, allowing them to stay informed and empowered throughout their trips. Through the development of Driver, I demonstrated my commitment to delivering practical solutions that prioritize the needs of users in the transportation industry.';
+  static const String passTitle = 'Hubbing Latam Pass';
+  static const String passDescription =
+      'I spearheaded the development of Pass, a tailored application specifically crafted for bus drivers. Pass goes beyond conventional functionalities by seamlessly integrating advanced passenger management tools such as onboard registration scanning and national ID verification. This innovative approach not only streamlines operations but also enhances passenger safety, providing bus drivers with comprehensive tools to ensure a smooth and secure travel experience for all passengers.\n\n'
+      'In addition to its cutting-edge features, Pass stands out for its seamless integration with the Driver app. Leveraging my expertise in Flutter development, I implemented strategic Flutter packages to consolidate shared functionalities between Pass and Driver. This strategic approach not only optimized code management and maintenance efforts but also ensured a cohesive user experience across both applications, allowing for seamless navigation and familiarity for users.\n\n'
+      'Through the development of Pass, I demonstrated my commitment to delivering solutions that prioritize both efficiency and safety in the transportation industry. By staying at the forefront of technology and implementing innovative features, Pass sets a new standard for passenger management in the bus transportation sector.';
+  static const String checkTitle = 'Hubbing Latam Check';
+  static const String checkDescription =
+      'I led the development of Check, a specialized application tailored for truck checkers. Check revolutionizes the inspection process by offering users the ability to schedule inspections, conduct detailed checklists, and document inspection results seamlessly. Through features such as photo uploads and descriptive entries, Check facilitates regulatory compliance and operational excellence, empowering truck checkers to efficiently manage inspections while ensuring adherence to industry standards.\n\n'
+      'With a focus on user-centric design and functionality, Check simplifies complex inspection procedures, streamlining workflows and enhancing productivity. By leveraging innovative technologies, Check sets a new standard for efficiency and accuracy in the trucking industry, providing users with a powerful tool to optimize their inspection processes.';
+  static const String urbetrackLiteAppStoreLink =
+      'https://apps.apple.com/us/app/urbetrack-lite/id1580574632';
+  static const String urbetrackLitePlayStoreLink =
+      'https://play.google.com/store/apps/details?id=com.urbetracklite&hl=es_419';
+  static const String urbeFleetAppStoreLink =
+      'https://apps.apple.com/ar/app/urbefleet/id6469199122';
+  static const String urbeFleetPlayStoreLink =
+      'https://play.google.com/store/apps/details?id=com.urbetrack.fleet&hl=en';
+  static const String driverAppStoreLink =
+      'https://apps.apple.com/ar/app/h-driver-hubbing-latam/id6468885709?l=en-GB';
+  static const String driverPlayStoreLink =
+      'https://play.google.com/store/apps/details?id=com.hubbinglatam.driver&hl=pl';
+  static const String passPlayStoreLink =
+      'https://play.google.com/store/apps/details?id=com.hubbinglatam.pass&hl=pl';
 }

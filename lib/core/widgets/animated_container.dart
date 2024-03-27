@@ -60,29 +60,32 @@ void buildPopupContainer(
   required String title,
   required String description,
   required List<String> images,
-  required String codeLink,
   required BoxConstraints constraints,
+  String? codeLink,
   String? projectLink,
+  String? appStoreLink,
+  String? playStoreLink,
   String? video,
 }) {
-  showDialog(
+  showDialog<void>(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        content: Container(
+        content: SizedBox(
           width: constraints.maxWidth > Resolutions.mobileMaxWidth
               ? MediaQuery.of(context).size.width * 0.8
               : MediaQuery.of(context).size.width,
           height: constraints.maxWidth > Resolutions.mobileMaxWidth
               ? MediaQuery.of(context).size.height * 0.8
               : MediaQuery.of(context).size.height * 0.95,
-          color: Colors.white,
           child: ProjectDetail(
             title: title,
             description: description,
             images: images,
             codeLink: codeLink,
             projectLink: projectLink,
+            appStoreLink: appStoreLink,
+            playStoreLink: playStoreLink,
             video: video,
           ),
         ),

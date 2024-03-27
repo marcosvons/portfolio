@@ -36,214 +36,209 @@ class HeroSection extends StatelessWidget {
               ),
               if (constraints.maxWidth > Resolutions.mobileMaxWidth)
                 const NavigationBar(),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: constraints.maxWidth > Resolutions.mobileMaxWidth
-                          ? context.width * 0.4
-                          : context.width,
-                      child: Column(
-                        crossAxisAlignment:
-                            constraints.maxWidth > Resolutions.mobileMaxWidth
-                                ? CrossAxisAlignment.start
-                                : CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RichText(
-                            textAlign: constraints.maxWidth >
-                                    Resolutions.mobileMaxWidth
-                                ? TextAlign.start
-                                : TextAlign.center,
-                            text: TextSpan(
-                              text: 'Welcome!\n\n',
-                              style: context.textTheme.displayLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
-                                fontFamily: Fonts.caprasimo,
-                                letterSpacing: 8,
-                              ),
-                              children: [
-                                if (constraints.maxWidth <
-                                    Resolutions.mobileMaxWidth)
-                                  WidgetSpan(
-                                    child: Center(
-                                      child: PhotoAvatar(
-                                        constraints: constraints,
-                                      ),
-                                    ),
-                                  ),
-                                TextSpan(
-                                  text: "I'm ",
-                                  style:
-                                      context.textTheme.displayLarge!.copyWith(
-                                    color: context.colorScheme.onBackground,
-                                    fontFamily: Fonts.belanosima,
-                                  ),
-                                ),
-                                WidgetSpan(
-                                  child: GradientText(
-                                    'Marcos',
-                                    style: context.textTheme.displayLarge!
-                                        .copyWith(
-                                      fontWeight: FontWeight.w800,
-                                      color: context.colorScheme.tertiary,
-                                      fontFamily: Fonts.belanosima,
-                                    ),
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        context.colorScheme.tertiary,
-                                        context.colorScheme.primary,
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ', a ',
-                                  style:
-                                      context.textTheme.displayLarge!.copyWith(
-                                    color: context.colorScheme.onBackground,
-                                    fontFamily: Fonts.belanosima,
-                                  ),
-                                ),
-                                WidgetSpan(
-                                  child: GradientText(
-                                    'Flutter Developer',
-                                    style: context.textTheme.displayLarge!
-                                        .copyWith(
-                                      color: context.colorScheme.secondary,
-                                      fontFamily: Fonts.belanosima,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        context.colorScheme.tertiary,
-                                        context.colorScheme.primary,
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: constraints.maxWidth > Resolutions.mobileMaxWidth
+                        ? context.width * 0.4
+                        : context.width,
+                    child: Column(
+                      crossAxisAlignment:
+                          constraints.maxWidth > Resolutions.mobileMaxWidth
+                              ? CrossAxisAlignment.start
+                              : CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RichText(
+                          textAlign:
+                              constraints.maxWidth > Resolutions.mobileMaxWidth
+                                  ? TextAlign.start
+                                  : TextAlign.center,
+                          text: TextSpan(
+                            text: 'Welcome!\n\n',
+                            style: context.textTheme.displayLarge!.copyWith(
+                              color: context.colorScheme.onBackground,
+                              fontFamily: Fonts.caprasimo,
+                              letterSpacing: 8,
                             ),
+                            children: [
+                              if (constraints.maxWidth <
+                                  Resolutions.mobileMaxWidth)
+                                WidgetSpan(
+                                  child: Center(
+                                    child: PhotoAvatar(
+                                      constraints: constraints,
+                                    ),
+                                  ),
+                                ),
+                              TextSpan(
+                                text: "I'm ",
+                                style: context.textTheme.displayLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                  fontFamily: Fonts.belanosima,
+                                ),
+                              ),
+                              WidgetSpan(
+                                child: GradientText(
+                                  'Marcos',
+                                  style:
+                                      context.textTheme.displayLarge!.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                    color: context.colorScheme.tertiary,
+                                    fontFamily: Fonts.belanosima,
+                                  ),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      context.colorScheme.tertiary,
+                                      context.colorScheme.primary,
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              TextSpan(
+                                text: ', a ',
+                                style: context.textTheme.displayLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                  fontFamily: Fonts.belanosima,
+                                ),
+                              ),
+                              WidgetSpan(
+                                child: GradientText(
+                                  'Flutter Developer',
+                                  style:
+                                      context.textTheme.displayLarge!.copyWith(
+                                    color: context.colorScheme.secondary,
+                                    fontFamily: Fonts.belanosima,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      context.colorScheme.tertiary,
+                                      context.colorScheme.primary,
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: constraints.maxWidth >
-                                    Resolutions.mobileMaxWidth
-                                ? Dimens.xxLarge * 1.5
-                                : Dimens.large,
+                        ),
+                        SizedBox(
+                          height:
+                              constraints.maxWidth > Resolutions.mobileMaxWidth
+                                  ? Dimens.xxLarge * 1.5
+                                  : Dimens.large,
+                        ),
+                        SizedBox(
+                          width:
+                              constraints.maxWidth > Resolutions.mobileMaxWidth
+                                  ? context.width * 0.4
+                                  : context.width * 0.85,
+                          height:
+                              constraints.maxWidth > Resolutions.mobileMaxWidth
+                                  ? context.height * 0.225
+                                  : context.height * 0.275,
+                          child: AnimatedTextKit(
+                            totalRepeatCount: 1,
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                Strings.introductionSubtitle,
+                                textAlign: constraints.maxWidth >
+                                        Resolutions.mobileMaxWidth
+                                    ? TextAlign.start
+                                    : TextAlign.center,
+                                textStyle:
+                                    context.textTheme.displaySmall!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: Fonts.narnoor,
+                                ),
+                                speed: const Duration(milliseconds: 20),
+                              ),
+                            ],
+                            stopPauseOnTap: true,
                           ),
-                          SizedBox(
-                            width: constraints.maxWidth >
+                        ),
+                        const SizedBox(height: Dimens.xxLarge),
+                        SizedBox(
+                          width:
+                              constraints.maxWidth > Resolutions.mobileMaxWidth
+                                  ? context.width * 0.4
+                                  : context.width,
+                          child: Row(
+                            mainAxisAlignment: constraints.maxWidth >
                                     Resolutions.mobileMaxWidth
-                                ? context.width * 0.4
-                                : context.width * 0.85,
-                            height: constraints.maxWidth >
-                                    Resolutions.mobileMaxWidth
-                                ? context.height * 0.225
-                                : context.height * 0.275,
-                            child: AnimatedTextKit(
-                              totalRepeatCount: 1,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  Strings.introductionSubtitle,
-                                  textAlign: constraints.maxWidth >
-                                          Resolutions.mobileMaxWidth
-                                      ? TextAlign.start
-                                      : TextAlign.center,
-                                  textStyle:
-                                      context.textTheme.displaySmall!.copyWith(
-                                    color: context.colorScheme.onBackground,
-                                    fontWeight: FontWeight.w500,
+                                ? MainAxisAlignment.spaceBetween
+                                : MainAxisAlignment.spaceAround,
+                            children: [
+                              AnimatedButton(
+                                constraints: constraints,
+                                initialColor: context.colorScheme.primary,
+                                hoversColor: [
+                                  context.colorScheme.tertiary,
+                                  const Color(0xFF7BF4E8),
+                                ],
+                                onPressed: () {
+                                  launchURL(
+                                    Strings.enCvUrl,
+                                    context,
+                                    errorMessage:
+                                        'An error occurred while downloading the CV.',
+                                  );
+                                  launchURL(
+                                    Strings.esCvUrl,
+                                    context,
+                                    errorMessage:
+                                        'An error occurred while downloading the CV.',
+                                  );
+                                },
+                                duration: const Duration(milliseconds: 250),
+                                child: Text(
+                                  'CV',
+                                  style: context.textTheme.bodyLarge!.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: Fonts.narnoor,
                                   ),
-                                  speed: const Duration(milliseconds: 20),
                                 ),
-                              ],
-                              stopPauseOnTap: true,
-                            ),
+                              ),
+                              AnimatedButton(
+                                constraints: constraints,
+                                initialColor: context.colorScheme.primary,
+                                hoversColor: [
+                                  context.colorScheme.tertiary,
+                                  const Color(0xFF7BF4E8),
+                                ],
+                                child: Text(
+                                  'Contact me',
+                                  style: context.textTheme.bodyLarge!.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: Fonts.narnoor,
+                                  ),
+                                ),
+                                onPressed: () => Scrollable.ensureVisible(
+                                  const GlobalObjectKey('contact')
+                                      .currentContext!,
+                                  duration: const Duration(
+                                    seconds: 1,
+                                  ),
+                                  alignment: .5,
+                                  curve: Curves.easeInOutCubic,
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: Dimens.xxLarge),
-                          SizedBox(
-                            width: constraints.maxWidth >
-                                    Resolutions.mobileMaxWidth
-                                ? context.width * 0.4
-                                : context.width,
-                            child: Row(
-                              mainAxisAlignment: constraints.maxWidth >
-                                      Resolutions.mobileMaxWidth
-                                  ? MainAxisAlignment.spaceBetween
-                                  : MainAxisAlignment.spaceAround,
-                              children: [
-                                AnimatedButton(
-                                  constraints: constraints,
-                                  initialColor: context.colorScheme.primary,
-                                  hoversColor: [
-                                    context.colorScheme.tertiary,
-                                    const Color(0xFF7BF4E8),
-                                  ],
-                                  onPressed: () {
-                                    launchURL(
-                                      Strings.enCvUrl,
-                                      context,
-                                      errorMessage:
-                                          'An error occurred while downloading the CV.',
-                                    );
-                                    launchURL(
-                                      Strings.esCvUrl,
-                                      context,
-                                      errorMessage:
-                                          'An error occurred while downloading the CV.',
-                                    );
-                                  },
-                                  duration: const Duration(milliseconds: 250),
-                                  child: Text(
-                                    'CV',
-                                    style:
-                                        context.textTheme.bodyLarge!.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: Fonts.narnoor,
-                                    ),
-                                  ),
-                                ),
-                                AnimatedButton(
-                                  constraints: constraints,
-                                  initialColor: context.colorScheme.primary,
-                                  hoversColor: [
-                                    context.colorScheme.tertiary,
-                                    const Color(0xFF7BF4E8),
-                                  ],
-                                  child: Text(
-                                    'Contact me',
-                                    style:
-                                        context.textTheme.bodyLarge!.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: Fonts.narnoor,
-                                    ),
-                                  ),
-                                  onPressed: () => Scrollable.ensureVisible(
-                                    const GlobalObjectKey('contact')
-                                        .currentContext!,
-                                    duration: const Duration(
-                                      seconds: 1,
-                                    ),
-                                    alignment: .5,
-                                    curve: Curves.easeInOutCubic,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    if (constraints.maxWidth > Resolutions.mobileMaxWidth)
-                      PhotoAvatar(
-                        constraints: constraints,
-                      ),
-                  ],
-                ),
+                  ),
+                  if (constraints.maxWidth > Resolutions.mobileMaxWidth)
+                    PhotoAvatar(
+                      constraints: constraints,
+                    ),
+                ],
               ),
             ],
           ),
@@ -266,7 +261,7 @@ class PhotoAvatar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: constraints.maxWidth > Resolutions.mobileMaxWidth
-            ? context.height * 0.1
+            ? context.height * 0.2
             : 0,
         bottom: constraints.maxWidth > Resolutions.mobileMaxWidth
             ? 0
@@ -367,7 +362,6 @@ class NavigationBar extends StatelessWidget {
                         duration: const Duration(
                           seconds: 1,
                         ),
-                        alignment: .5,
                         curve: Curves.easeInOutCubic,
                       ),
                       child: Text(

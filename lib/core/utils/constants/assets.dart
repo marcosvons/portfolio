@@ -51,6 +51,35 @@ abstract class Images {
       'assets/images/star_wars_sighting.webp';
   static const String githubLogo = 'assets/images/github_logo.webp';
   static const String linkedinLogo = 'assets/images/linkedin_logo.webp';
+  static const String urbeLiteLogo = 'assets/images/urbetrack_lite_logo.png';
+  static const String lite1 = 'assets/images/lite_1.png';
+  static const String lite2 = 'assets/images/lite_2.png';
+  static const String lite3 = 'assets/images/lite_3.png';
+  static const String lite4 = 'assets/images/lite_4.png';
+  static const String lite5 = 'assets/images/lite_5.png';
+  static const String urbeFleetLogo = 'assets/images/urbe_fleet_logo.png';
+  static const String fleet1 = 'assets/images/fleet_1.png';
+  static const String fleet2 = 'assets/images/fleet_2.png';
+  static const String fleet3 = 'assets/images/fleet_3.png';
+  static const String fleet4 = 'assets/images/fleet_4.png';
+  static const String driverLogo = 'assets/images/driver_logo.png';
+  static const String driver1 = 'assets/images/driver_1.png';
+  static const String driver2 = 'assets/images/driver_2.png';
+  static const String driver3 = 'assets/images/driver_3.png';
+  static const String driver4 = 'assets/images/driver_4.png';
+  static const String driver5 = 'assets/images/driver_5.png';
+  static const String passLogo = 'assets/images/pass_logo.png';
+  static const String pass1 = 'assets/images/pass_1.png';
+  static const String pass2 = 'assets/images/pass_2.png';
+  static const String pass3 = 'assets/images/pass_3.png';
+  static const String pass4 = 'assets/images/pass_4.png';
+  static const String pass5 = 'assets/images/pass_5.png';
+  static const String checkLogo = 'assets/images/check_logo.png';
+  static const String check1 = 'assets/images/check_1.png';
+  static const String check2 = 'assets/images/check_2.png';
+  static const String check3 = 'assets/images/check_3.png';
+  static const String check4 = 'assets/images/check_4.png';
+  static const String check5 = 'assets/images/check_5.png';
 }
 
 abstract class Videos {
